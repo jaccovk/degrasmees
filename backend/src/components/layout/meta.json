@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_layout_metas",
+  "info": {
+    "displayName": "meta",
+    "icon": "cast",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "metaTitle": {
+      "type": "string",
+      "regex": "^.{1,50}$"
+    },
+    "metaDescription": {
+      "type": "text",
+      "regex": "^.{1,160}$"
+    }
+  }
+}

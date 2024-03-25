@@ -1,0 +1,28 @@
+{
+  "kind": "singleType",
+  "collectionName": "themes",
+  "info": {
+    "singularName": "theme",
+    "pluralName": "themes",
+    "displayName": "Theme",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "darkMode": {
+      "type": "boolean",
+      "default": true,
+      "required": true
+    },
+    "containerWidth": {
+      "type": "integer",
+      "required": true,
+      "default": 90,
+      "max": 100,
+      "min": 50
+    }
+  }
+}

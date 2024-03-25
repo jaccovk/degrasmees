@@ -1,0 +1,37 @@
+{
+  "collectionName": "components_layout_navigations",
+  "info": {
+    "displayName": "Navigatie",
+    "icon": "search",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "links": {
+      "type": "component",
+      "repeatable": true,
+      "component": "link.link"
+    },
+    "logo": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "socialLinks": {
+      "type": "component",
+      "repeatable": true,
+      "component": "link.social-link"
+    },
+    "logoFooter": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false,
+      "required": false
+    }
+  }
+}

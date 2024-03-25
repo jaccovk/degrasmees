@@ -1,0 +1,31 @@
+import "@/styles/index.scss";
+import React from "react";
+import {i18n} from "../../../i18n-config";
+import Config from "./config";
+import App from "./app";
+
+interface RootLayoutProps {
+    children: React.ReactNode;
+    params: {
+        slug: string
+        lang: string
+    };
+}
+
+export default async function RootLayout({children, params}: RootLayoutProps) {
+  return (
+    <html lang={params.lang}>
+      <body>
+        <Config>
+          <App params={params}>
+            {children}
+          </App>
+        </Config>
+      </body>
+    </html>
+  );
+}
+
+export async function generateStaticParams() {
+  return i18n.locales.map((locale) => ({lang: locale}));
+}

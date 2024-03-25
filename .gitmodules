@@ -1,0 +1,3 @@
+[submodule "frontend/src/base"]
+	path = frontend/src/base
+	url = git@github.com:jaccovk/base.git

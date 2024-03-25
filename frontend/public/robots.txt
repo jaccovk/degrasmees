@@ -1,0 +1,2 @@
+# robots
+Sitemap: https://strapi.jaapvankooten.nl/api/sitemap/index.xml
