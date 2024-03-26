@@ -48,12 +48,14 @@ export default function App({params, children}: AppProps) {
     fetchData(themeData, themeError, setTheme);
   }, [setTheme, themeError, themeData, fetchData]);
 
+  // TODO: Add colors
+
   const favicon = globalData?.personaldata?.favicon
   return (
     <>
       <main className={colorTheme}>
         <Head>
-          {favicon?.data.attributes.url ? (
+          {favicon?.data?.attributes?.url ? (
             <link
               rel="shortcut icon"
               href={getStrapiMedia(favicon?.data?.attributes.url)}

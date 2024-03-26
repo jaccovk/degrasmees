@@ -1,0 +1,52 @@
+{
+  "collectionName": "components_layout_colors",
+  "info": {
+    "displayName": "colors",
+    "icon": "sun"
+  },
+  "options": {},
+  "attributes": {
+    "primary": {
+      "type": "string",
+      "required": true,
+      "default": "#999",
+      "maxLength": 7,
+      "minLength": 4
+    },
+    "secondary": {
+      "type": "string",
+      "default": "#999",
+      "required": true,
+      "maxLength": 7,
+      "minLength": 4
+    },
+    "textPrimary": {
+      "type": "string",
+      "required": true,
+      "minLength": 4,
+      "maxLength": 7,
+      "default": "#000"
+    },
+    "textSecondary": {
+      "type": "string",
+      "required": true,
+      "maxLength": 7,
+      "minLength": 4,
+      "default": "#fff"
+    },
+    "backgroundPrimary": {
+      "type": "string",
+      "required": true,
+      "maxLength": 7,
+      "minLength": 4,
+      "default": "#111"
+    },
+    "backgroundSecondary": {
+      "type": "string",
+      "required": true,
+      "default": "#fff",
+      "maxLength": 7,
+      "minLength": 4
+    }
+  }
+}

@@ -1113,6 +1113,7 @@ export interface ApiThemeTheme extends Schema.SingleType {
         number
       > &
       Attribute.DefaultTo<90>;
+    colors: Attribute.Component<'layout.colors'> & Attribute.Required;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<

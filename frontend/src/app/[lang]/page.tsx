@@ -2,12 +2,13 @@
 
 import usePage from "@/Hooks/usePage.hook";
 import {sectionRenderer} from "@/utils/section-renderer";
-import {useEffect} from "react";
+import React, {useEffect} from "react";
 import {NextSeo} from "next-seo";
 import Script from "next/script";
 import {useGlobalContext} from "@/Contexts/global.context";
 import {getStrapiURL} from "@/utils/api-helpers";
 import useOverlay from "@/Hooks/useOverlay.hook";
+import Custom404 from "@/components/ErrorPages/Custom404";
 
 interface HomeProps {
     params: {
@@ -40,6 +41,8 @@ export default function Home({params}: HomeProps) {
     image: getStrapiURL(global?.personaldata?.favicon?.data?.attributes?.url) || "",
     sameAs: "https://jaapvankooten.nl/nl"
   }
+
+  if (!home) return <Custom404 params={params}/>;
 
   return (
     <div className="sections">

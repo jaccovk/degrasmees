@@ -1,5 +1,57 @@
 import type { Schema, Attribute } from '@strapi/strapi';
 
+export interface LayoutColors extends Schema.Component {
+  collectionName: 'components_layout_colors';
+  info: {
+    displayName: 'colors';
+    icon: 'sun';
+  };
+  attributes: {
+    primary: Attribute.String &
+      Attribute.Required &
+      Attribute.SetMinMaxLength<{
+        minLength: 4;
+        maxLength: 7;
+      }> &
+      Attribute.DefaultTo<'#999'>;
+    secondary: Attribute.String &
+      Attribute.Required &
+      Attribute.SetMinMaxLength<{
+        minLength: 4;
+        maxLength: 7;
+      }> &
+      Attribute.DefaultTo<'#999'>;
+    textPrimary: Attribute.String &
+      Attribute.Required &
+      Attribute.SetMinMaxLength<{
+        minLength: 4;
+        maxLength: 7;
+      }> &
+      Attribute.DefaultTo<'#000'>;
+    textSecondary: Attribute.String &
+      Attribute.Required &
+      Attribute.SetMinMaxLength<{
+        minLength: 4;
+        maxLength: 7;
+      }> &
+      Attribute.DefaultTo<'#fff'>;
+    backgroundPrimary: Attribute.String &
+      Attribute.Required &
+      Attribute.SetMinMaxLength<{
+        minLength: 4;
+        maxLength: 7;
+      }> &
+      Attribute.DefaultTo<'#111'>;
+    backgroundSecondary: Attribute.String &
+      Attribute.Required &
+      Attribute.SetMinMaxLength<{
+        minLength: 4;
+        maxLength: 7;
+      }> &
+      Attribute.DefaultTo<'#fff'>;
+  };
+}
+
 export interface LayoutMeta extends Schema.Component {
   collectionName: 'components_layout_metas';
   info: {
@@ -153,6 +205,7 @@ export interface SectionsTextarea extends Schema.Component {
 declare module '@strapi/types' {
   export module Shared {
     export interface Components {
+      'layout.colors': LayoutColors;
       'layout.meta': LayoutMeta;
       'layout.navigation': LayoutNavigation;
       'layout.personaldata': LayoutPersonaldata;
