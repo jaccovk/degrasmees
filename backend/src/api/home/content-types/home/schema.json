@@ -47,7 +47,9 @@
         "sections.hero",
         "sections.media-float",
         "sections.textarea",
-        "sections.storyline-float"
+        "sections.storyline-float",
+        "sections.grid",
+        "sections.gallery"
       ]
     },
     "useOverlay": {

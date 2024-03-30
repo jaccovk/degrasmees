@@ -1,0 +1,55 @@
+@import '@/styles/typography';
+
+.navigation {
+  height: $navbar-height;
+
+  .logo {
+    font-size: $font-size-xl;
+  }
+}
+
+.block {
+  @include spaceBetween;
+  height: 100%;
+}
+
+.content {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+
+  svg {
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+  }
+
+  ul {
+    @include spaceBetween;
+    flex-wrap: wrap;
+
+    li {
+      display: flex;
+    }
+  }
+
+  @include smallDevice() {
+    display: none;
+  }
+}
+
+.mobile {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: responsiveSpacing(.3rem);
+
+  svg {
+    width: 100%;
+    height: 100%;
+  }
+
+  @include largeDevice() {
+    display: none;
+  }
+}

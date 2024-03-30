@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_elements_columns",
+  "info": {
+    "displayName": "Column",
+    "icon": "arrowRight"
+  },
+  "options": {},
+  "attributes": {
+    "text": {
+      "type": "string"
+    },
+    "media": {
+      "allowedTypes": [
+        "images",
+        "videos"
+      ],
+      "type": "media",
+      "multiple": true
+    }
+  }
+}

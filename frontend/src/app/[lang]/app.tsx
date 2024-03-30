@@ -9,6 +9,7 @@ import useDarkMode from "@/Hooks/useDarkMode.hook";
 import useTheme from "@/Hooks/useTheme";
 import Head from "next/head";
 import {getStrapiMedia} from "@/utils/api-helpers";
+import useColors from "@/Hooks/useColors.hook";
 
 interface AppProps {
     params: {
@@ -36,10 +37,11 @@ export default function App({params, children}: AppProps) {
     if (data) set(data);
     if (error) window && window.location.replace("/404");
   }, []);
-    /**
-     * Effects
-     *
-     */
+  /**
+   * Effects
+   *
+   */
+  useColors(themeData?.colors);
   useEffect(() => {
     fetchData(globalData, globalError, setGlobal);
   }, [setGlobal, globalError, globalData, fetchData]);
@@ -47,8 +49,6 @@ export default function App({params, children}: AppProps) {
   useEffect(() => {
     fetchData(themeData, themeError, setTheme);
   }, [setTheme, themeError, themeData, fetchData]);
-
-  // TODO: Add colors
 
   const favicon = globalData?.personaldata?.favicon
   return (

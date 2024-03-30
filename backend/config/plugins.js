@@ -1,4 +1,23 @@
 module.exports = ({ env }) => ({
+  email: {
+    config: {
+      provider: 'nodemailer',
+      providerOptions: {
+        host: 'localhost',
+        port: 25,
+        ignoreTLS: true,
+        // auth: {
+        // user: env('SMTP_USERNAME'),
+        // pass: env('SMTP_PASSWORD'),
+        // },
+        // ... any custom nodemailer options
+      },
+      settings: {
+        defaultFrom: env('MAIL_DEFAULT_FROM'),
+        defaultReplyTo: env('MAIL_DEFAULT_REPLY_TO'),
+      },
+    },
+  },
   sitemap: {
     enabled: true,
     config: {

@@ -7,7 +7,7 @@
     "update": "bash ./update.sh",
     "develop": "cross-env FORCE_COLOR=1 npm-run-all -l -p develop:*",
     "develop:backend": "yarn --cwd backend develop",
-    "develop:frontend": "wait-on http://localhost:1337/admin && yarn --cwd frontend dev"
+    "develop:frontend": "wait-on http://localhost:1338/admin && yarn --cwd frontend dev"
   },
   "dependencies": {
     "cross-env": "^7.0.3",

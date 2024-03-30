@@ -29,6 +29,11 @@
       ],
       "default": "large",
       "required": true
+    },
+    "typed": {
+      "type": "boolean",
+      "default": true,
+      "required": true
     }
   }
 }

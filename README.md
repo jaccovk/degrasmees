@@ -17,7 +17,7 @@ Run `yarn start` to start the frontend and backend on the development server.
 ## To Do's 
 ### general
 - Fix `Server Side Components`; each section should fetch its own data
-- !!! replace NGINX nextjs.conf and strapi.conf to `base` folder !!!
+- Update .env in `clone-project.sh` with nodemailer
 
 ### content
 - Remove favicon from strapi?

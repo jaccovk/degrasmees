@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_sections_grids",
+  "info": {
+    "displayName": "Grid",
+    "icon": "apps"
+  },
+  "options": {},
+  "attributes": {
+    "rows": {
+      "type": "component",
+      "repeatable": true,
+      "component": "elements.row"
+    },
+    "title": {
+      "type": "string"
+    }
+  }
+}

@@ -2,20 +2,21 @@
   "collectionName": "components_layout_colors",
   "info": {
     "displayName": "colors",
-    "icon": "sun"
+    "icon": "sun",
+    "description": ""
   },
   "options": {},
   "attributes": {
     "primary": {
       "type": "string",
       "required": true,
-      "default": "#999",
+      "default": "#ccc",
       "maxLength": 7,
       "minLength": 4
     },
     "secondary": {
       "type": "string",
-      "default": "#999",
+      "default": "#ccc",
       "required": true,
       "maxLength": 7,
       "minLength": 4
@@ -47,6 +48,13 @@
       "default": "#fff",
       "maxLength": 7,
       "minLength": 4
+    },
+    "tertiary": {
+      "type": "string",
+      "required": true,
+      "maxLength": 7,
+      "minLength": 4,
+      "default": "#ccc"
     }
   }
 }

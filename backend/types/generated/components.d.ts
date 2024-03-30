@@ -1,10 +1,34 @@
 import type { Schema, Attribute } from '@strapi/strapi';
 
+export interface ElementsColumn extends Schema.Component {
+  collectionName: 'components_elements_columns';
+  info: {
+    displayName: 'Column';
+    icon: 'arrowRight';
+  };
+  attributes: {
+    text: Attribute.String;
+    media: Attribute.Media;
+  };
+}
+
+export interface ElementsRow extends Schema.Component {
+  collectionName: 'components_elements_rows';
+  info: {
+    displayName: 'Row';
+    icon: 'arrowRight';
+  };
+  attributes: {
+    columns: Attribute.Component<'elements.column', true>;
+  };
+}
+
 export interface LayoutColors extends Schema.Component {
   collectionName: 'components_layout_colors';
   info: {
     displayName: 'colors';
     icon: 'sun';
+    description: '';
   };
   attributes: {
     primary: Attribute.String &
@@ -13,14 +37,14 @@ export interface LayoutColors extends Schema.Component {
         minLength: 4;
         maxLength: 7;
       }> &
-      Attribute.DefaultTo<'#999'>;
+      Attribute.DefaultTo<'#ccc'>;
     secondary: Attribute.String &
       Attribute.Required &
       Attribute.SetMinMaxLength<{
         minLength: 4;
         maxLength: 7;
       }> &
-      Attribute.DefaultTo<'#999'>;
+      Attribute.DefaultTo<'#ccc'>;
     textPrimary: Attribute.String &
       Attribute.Required &
       Attribute.SetMinMaxLength<{
@@ -49,6 +73,13 @@ export interface LayoutColors extends Schema.Component {
         maxLength: 7;
       }> &
       Attribute.DefaultTo<'#fff'>;
+    tertiary: Attribute.String &
+      Attribute.Required &
+      Attribute.SetMinMaxLength<{
+        minLength: 4;
+        maxLength: 7;
+      }> &
+      Attribute.DefaultTo<'#ccc'>;
   };
 }
 
@@ -138,6 +169,29 @@ export interface LinkSocialLink extends Schema.Component {
   };
 }
 
+export interface SectionsGallery extends Schema.Component {
+  collectionName: 'components_sections_galleries';
+  info: {
+    displayName: 'Gallery';
+  };
+  attributes: {
+    title: Attribute.String;
+    media: Attribute.Media;
+  };
+}
+
+export interface SectionsGrid extends Schema.Component {
+  collectionName: 'components_sections_grids';
+  info: {
+    displayName: 'Grid';
+    icon: 'apps';
+  };
+  attributes: {
+    rows: Attribute.Component<'elements.row', true>;
+    title: Attribute.String;
+  };
+}
+
 export interface SectionsHero extends Schema.Component {
   collectionName: 'components_sections_heroes';
   info: {
@@ -151,6 +205,7 @@ export interface SectionsHero extends Schema.Component {
     size: Attribute.Enumeration<['small', 'large']> &
       Attribute.Required &
       Attribute.DefaultTo<'large'>;
+    typed: Attribute.Boolean & Attribute.Required & Attribute.DefaultTo<true>;
   };
 }
 
@@ -205,6 +260,8 @@ export interface SectionsTextarea extends Schema.Component {
 declare module '@strapi/types' {
   export module Shared {
     export interface Components {
+      'elements.column': ElementsColumn;
+      'elements.row': ElementsRow;
       'layout.colors': LayoutColors;
       'layout.meta': LayoutMeta;
       'layout.navigation': LayoutNavigation;
@@ -212,6 +269,8 @@ declare module '@strapi/types' {
       'link.button': LinkButton;
       'link.link': LinkLink;
       'link.social-link': LinkSocialLink;
+      'sections.gallery': SectionsGallery;
+      'sections.grid': SectionsGrid;
       'sections.hero': SectionsHero;
       'sections.media-float': SectionsMediaFloat;
       'sections.storyline-float': SectionsStorylineFloat;

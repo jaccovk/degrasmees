@@ -978,7 +978,9 @@ export interface ApiHomeHome extends Schema.SingleType {
         'sections.hero',
         'sections.media-float',
         'sections.textarea',
-        'sections.storyline-float'
+        'sections.storyline-float',
+        'sections.grid',
+        'sections.gallery'
       ]
     > &
       Attribute.SetPluginOptions<{
@@ -1053,7 +1055,9 @@ export interface ApiPagePage extends Schema.CollectionType {
         'sections.hero',
         'sections.media-float',
         'sections.textarea',
-        'sections.storyline-float'
+        'sections.storyline-float',
+        'sections.gallery',
+        'sections.grid'
       ]
     > &
       Attribute.SetPluginOptions<{
@@ -1085,6 +1089,39 @@ export interface ApiPagePage extends Schema.CollectionType {
       'api::page.page'
     >;
     locale: Attribute.String;
+  };
+}
+
+export interface ApiSubmissionSubmission extends Schema.CollectionType {
+  collectionName: 'submissions';
+  info: {
+    singularName: 'submission';
+    pluralName: 'submissions';
+    displayName: 'Submission';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    name: Attribute.String;
+    email: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::submission.submission',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::submission.submission',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    sitemap_exclude: Attribute.Boolean &
+      Attribute.Private &
+      Attribute.DefaultTo<false>;
   };
 }
 
@@ -1157,6 +1194,7 @@ declare module '@strapi/types' {
       'api::global.global': ApiGlobalGlobal;
       'api::home.home': ApiHomeHome;
       'api::page.page': ApiPagePage;
+      'api::submission.submission': ApiSubmissionSubmission;
       'api::theme.theme': ApiThemeTheme;
     }
   }

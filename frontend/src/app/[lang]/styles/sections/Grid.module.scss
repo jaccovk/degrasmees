@@ -1,0 +1,50 @@
+@import '@/styles/typography';
+
+.block {
+}
+
+.row {
+  @include responsiveGrid($gap: 0);
+}
+
+.column {
+  @include stack;
+
+  .textContainer {
+    @include flex(flex-end);
+
+    .text {
+      @include flex;
+      width: 100%;
+      height: 50%;
+      z-index: 1;
+
+      h3 {
+        @include fitText($max: 10ch);
+        text-align: center;
+        z-index: 1;
+        font-weight: $font-weight-base;
+      }
+    }
+  }
+
+  .textPrimary {
+    .text {
+      background: $gradient-light;
+
+      h3 {
+        color: $textPrimary;
+      }
+    }
+  }
+
+  .textSecondary {
+    .text {
+      background: $gradient-dark;
+
+      h3 {
+        color: $textSecondary;
+      }
+    }
+  }
+}

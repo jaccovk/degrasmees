@@ -1,0 +1,29 @@
+@import '@/styles/typography';
+
+.block {
+  @include stack;
+  overflow: hidden;
+}
+
+.overlay {
+  img {
+    width: 100%;
+    height: 500px;
+  }
+}
+
+.media {
+  z-index: 1;
+
+  :global(.keen-slider__slide) {
+    @include flex;
+
+    img, video {
+      width: 470px;
+      height: 470px;
+      border-radius: 50%;
+    }
+  }
+}
+
+

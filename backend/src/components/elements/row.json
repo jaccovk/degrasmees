@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_elements_rows",
+  "info": {
+    "displayName": "Row",
+    "icon": "arrowRight"
+  },
+  "options": {},
+  "attributes": {
+    "columns": {
+      "displayName": "Column",
+      "type": "component",
+      "repeatable": true,
+      "component": "elements.column"
+    }
+  }
+}
