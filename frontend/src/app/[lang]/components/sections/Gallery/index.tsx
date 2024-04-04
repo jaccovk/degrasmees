@@ -22,8 +22,23 @@ export default function Gallery(props: GalleryProps) {
       <div className={styles.media}>
         <MediaSlider media={media} settings={{
           breakpoints: {
-            "(max-width: 768px)": {
+            "(max-width: 250px)": {
+              slides: { perView: 1, origin: "center" },
+            },
+            "(min-width: 251px) and (max-width: 350px)": {
               slides: { perView: 1.25, origin: "center" },
+            },
+            "(min-width: 351px) and (max-width: 470px)": {
+              slides: { perView: 1.5, origin: "center" },
+            },
+            "(min-width: 471px) and (max-width: 530px)": {
+              slides: { perView: 2, origin: "center" },
+            },
+            "(min-width: 531px) and (max-width: 650px)": {
+              slides: { perView: 2.25, origin: "center" },
+            },
+            "(min-width: 651px) and (max-width: 768px)": {
+              slides: { perView: 2.75, origin: "center" },
             },
             "(min-width: 769px) and (max-width: 1024px)": {
               slides: { perView: 1.75, origin: "center" },

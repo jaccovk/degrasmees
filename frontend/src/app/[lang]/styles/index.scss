@@ -39,12 +39,8 @@ main {
   background-color: $backgroundSecondary;
   color: $textPrimary;
 
-  .navigation-container {
+  .navigation-container, .mobile-navigation {
     background-color: $backgroundSecondary;
-  }
-
-  .mobile-navigation {
-    background-color: white;
   }
 
   .storyline-float-stroke {
@@ -64,12 +60,8 @@ main {
   background-color: $backgroundPrimary;
   color: $textSecondary;
 
-  .navigation-container {
+  .navigation-container, .mobile-navigation {
     background-color: $backgroundPrimary;
-  }
-
-  .mobile-navigation {
-    background-color: $tertiary;
   }
 
   .storyline-float-stroke {
@@ -93,6 +85,10 @@ main {
 }
 
 // Typography +=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=
+html {
+  scroll-behavior: smooth;
+}
+
 h1 {
   font-size: $font-size-4xl;
   font-weight: $font-weight-base;
@@ -137,6 +133,7 @@ a {
 
 // Navigation +=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=
 .navigation-container {
+  @include flex;
   height: $navbar-height;
   z-index: 10;
   width: 100%;

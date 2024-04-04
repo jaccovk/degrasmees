@@ -4,7 +4,7 @@ import {LinkProps, SocialLinkProps} from "@/Interfaces/strapi-components/link.in
 import React from "react";
 import CustomLink from "@/components/links/CustomLink";
 import {useGlobalContext} from "@/Contexts/global.context";
-import useContainer from "@/Hooks/useContainer";
+
 import NextMedia from "@/components/global/Media/NextMedia";
 import {Parts} from "@/Interfaces/api.interface";
 
@@ -17,7 +17,7 @@ export default function Footer() {
 
   return (
     <footer className={styles.block}>
-      <div className={styles.content} style={useContainer()}>
+      <div className={styles.content}>
         <div className={styles.logo}>
           {logo && <NextMedia media={logo} width={50} height={50} isLink /> }
         </div>

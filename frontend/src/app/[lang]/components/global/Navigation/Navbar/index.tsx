@@ -5,7 +5,7 @@ import {LinkProps} from "@/Interfaces/strapi-components/link.interface";
 import CustomLink from "@/components/links/CustomLink";
 import {useGlobalContext} from "@/Contexts/global.context";
 import useDarkMode from "@/Hooks/useDarkMode.hook";
-import useContainer from "@/Hooks/useContainer";
+
 import ImageSkeleton from "@/components/skeletons/ImageSkeleton";
 import {Suspense, useState} from "react";
 import HamburgerMenu from "@/components/global/Navigation/HamburgerMenu";
@@ -34,7 +34,7 @@ export default function Index() {
   return (
     <div className="navigation-container">
       <nav className={styles.navigation}>
-        <div className={styles.block} style={useContainer()}>
+        <div className={styles.block}>
           <div className={styles.logo}>
             {/*<Suspense fallback={<ImageSkeleton/>}>*/}
             {/*  <NextMedia media={logo} isLink />*/}

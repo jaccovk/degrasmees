@@ -1,0 +1,29 @@
+@import '@/styles/typography';
+
+.block {
+  @include grid(2, 10rem, 0rem);
+  text-align: center;
+
+  @include smallDevice() {
+    @include grid(1, 10rem, 0rem);
+  }
+}
+
+.left {
+}
+
+.right {
+}
+
+.content {
+  @include container;
+  width: 100%;
+
+  @include largeDevice {
+    width: 50%;
+  }
+
+  h2 {
+    margin-top: 0;
+  }
+}

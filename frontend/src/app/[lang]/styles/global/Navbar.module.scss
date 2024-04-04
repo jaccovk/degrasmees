@@ -1,6 +1,8 @@
 @import '@/styles/typography';
 
 .navigation {
+  @include container;
+  width: 100%;
   height: $navbar-height;
 
   .logo {
@@ -9,15 +11,12 @@
 }
 
 .block {
-  @include spaceBetween;
+  @include flex(space-between, row);
   height: 100%;
 }
 
 .content {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
+  @include flex(space-between, row);
 
   svg {
     margin-left: 0.5rem;
@@ -25,7 +24,7 @@
   }
 
   ul {
-    @include spaceBetween;
+    @include flex(space-between, row);
     flex-wrap: wrap;
 
     li {

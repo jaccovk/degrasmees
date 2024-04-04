@@ -8,7 +8,7 @@ $backgroundPrimary: var(--background-primary-color);
 $backgroundSecondary: var(--background-secondary-color);
 
 // CONTAINERS
-//$container-max-width: 1200px;
+$container-max-width: var(--container-width);
 $inner-container-max-width: 800px;
 
 // COLORS - extra
@@ -30,13 +30,18 @@ $breakpoint-xl: 1200px;
 $breakpoint-2xl: 1400px;
 
 // SPACING
-$spacing-xs: responsiveSpacing(0.5rem);
-$spacing-base: responsiveSpacing(1rem);
-$spacing-lg: responsiveSpacing(2rem);
-$spacing-xl: responsiveSpacing(3rem);
+$spacing-xs: 0.5rem;
+$spacing-base: 1rem;
+$spacing-lg: 2rem;
+$spacing-xl: 3rem;
+
+// SVG SIZES
+$svg-size-sm: 24px;
+$svg-size-md: 32px;
+$svg-size-lg: 48px;
 
 // TYPOGRAPHY
-$font-family: 'Arial,Helvetica,sans-serif';
+$font-family: 'Arial, Helvetica, sans-serif';
 $font-size-base: clamp(24px, 5vw, 16px);
 $font-size-lg: clamp(24px, 5vw, 20px);
 $font-size-xl: clamp(24px, 5vw, 28px);
@@ -50,7 +55,7 @@ $font-weight-bold: 700;
 
 // MARGINS
 $sections-padding: 1rem;
-$sections-padding-lg: responsiveSpacing(2rem);
+$sections-padding-lg: 2rem;
 
 // GRADIENTS
 $gradient-light: linear-gradient(0deg, $gray-light 0%, $gray-light 80%, transparent 100%);

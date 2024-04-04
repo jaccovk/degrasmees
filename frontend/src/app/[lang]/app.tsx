@@ -9,7 +9,8 @@ import useDarkMode from "@/Hooks/useDarkMode.hook";
 import useTheme from "@/Hooks/useTheme";
 import Head from "next/head";
 import {getStrapiMedia} from "@/utils/api-helpers";
-import useColors from "@/Hooks/useColors.hook";
+import useColors from "@/Hooks/config/useColors.hook";
+import useContainer from "@/Hooks/config/useContainer.hook";
 
 interface AppProps {
     params: {
@@ -20,28 +21,29 @@ interface AppProps {
 }
 
 export default function App({params, children}: AppProps) {
-  /**
-   * Set global context
-   *
-   */
-  const { setGlobal } = useGlobalContext();
-  const { colorTheme, setTheme } = useDarkMode();
+  /**************************************************************************
+  * Set global context
+  *************************************************************************/
+  const {setGlobal} = useGlobalContext();
+  const {colorTheme, setTheme} = useDarkMode();
 
   const {data: globalData, error: globalError} = useGlobal({lang: params.lang});
   const {data: themeData, error: themeError} = useTheme();
-  /**
+  /**************************************************************************
+   * Hooks
+   ************************************************************************/
+  useColors(themeData?.colors);
+  useContainer(themeData?.containerWidth)
+  /**************************************************************************
    * Callbacks
-   *
-   */
+   *************************************************************************/
   const fetchData = useCallback((data: any, error: any, set: any) => {
     if (data) set(data);
     if (error) window && window.location.replace("/404");
   }, []);
-  /**
+  /**************************************************************************
    * Effects
-   *
-   */
-  useColors(themeData?.colors);
+   *************************************************************************/
   useEffect(() => {
     fetchData(globalData, globalError, setGlobal);
   }, [setGlobal, globalError, globalData, fetchData]);
@@ -50,6 +52,9 @@ export default function App({params, children}: AppProps) {
     fetchData(themeData, themeError, setTheme);
   }, [setTheme, themeError, themeData, fetchData]);
 
+  /**************************************************************************
+   * Render
+   *************************************************************************/
   const favicon = globalData?.personaldata?.favicon
   return (
     <>
