@@ -25,28 +25,28 @@
     "baseUrl": ".",
     "paths": {
       "@/components/*": [
-        "./src/app/[lang]/components/*",
-        "./src/base/components/*"
+        "src/app/[lang]/components/*",
+        "src/base/components/*"
       ],
       "@/Contexts/*": [
-        "./src/app/[lang]/Contexts/*",
-        "./src/base/Contexts/*"
+        "src/app/[lang]/Contexts/*",
+        "src/base/Contexts/*"
       ],
       "@/Hooks/*": [
-        "./src/app/[lang]/Hooks/*",
-        "./src/base/Hooks/*"
+        "src/app/[lang]/Hooks/*",
+        "src/base/Hooks/*"
       ],
       "@/Interfaces/*": [
-        "./src/app/[lang]/Interfaces/*",
-        "./src/base/Interfaces/*"
+        "src/app/[lang]/Interfaces/*",
+        "src/base/Interfaces/*"
       ],
       "@/styles/*": [
-        "./src/app/[lang]/styles/*",
-        "./src/base/styles/*"
+        "src/app/[lang]/styles/*",
+        "src/base/styles/*"
       ],
       "@/utils/*": [
-        "./src/app/[lang]/utils/*",
-        "./src/base/utils/*"
+        "src/app/[lang]/utils/*",
+        "src/base/utils/*"
       ]
     }
   },
