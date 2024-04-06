@@ -5,21 +5,18 @@ import {sectionRenderer} from "@/utils/section-renderer";
 import React, {useEffect} from "react";
 import {NextSeo} from "next-seo";
 import Script from "next/script";
-import {useGlobalContext} from "@/Contexts/global.context";
-import {getStrapiURL} from "@/utils/api-helpers";
 import useOverlay from "@/Hooks/useOverlay.hook";
 import Custom404 from "@/components/ErrorPages/Custom404";
 
 interface HomeProps {
-    params: {
-        lang: string;
-    };
+  params: {
+    lang: string;
+  };
 }
 
 export default function Home({params}: HomeProps) {
   const {data: home, error} = usePage({slug: "home", lang: params.lang})
   useOverlay(home?.useOverlay || false);
-  const { global } = useGlobalContext();
   const sections = home?.sections || [];
 
   useEffect(() => {
@@ -34,20 +31,11 @@ export default function Home({params}: HomeProps) {
     description: home?.meta?.metaDescription || "",
   };
 
-  const schema = {
-    "@context": "https://schema.org",
-    "@type": "Person",
-    name: global?.personaldata?.fullName || "",
-    image: getStrapiURL(global?.personaldata?.favicon?.data?.attributes?.url) || "",
-    sameAs: "https://jaapvankooten.nl/nl"
-  }
-
   if (!home) return <Custom404 params={params}/>;
 
   return (
     <div className="sections">
       {home?.meta && <Script id={"meta-schema"} type={"application/ld+json"}>{JSON.stringify(metaText)}</Script>}
-      {global?.personaldata &&  <Script id={"person-schema"} type={"application/ld+json"}>{JSON.stringify(schema)}</Script>}
       <NextSeo title={home?.meta?.metaTitle || ""} description={home?.meta?.metaDescription || ""}/>
       {sections?.map((section: any, index: number) => sectionRenderer(section, params.lang, index))}
     </div>);

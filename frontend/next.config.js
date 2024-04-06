@@ -14,7 +14,7 @@ const nextConfig = {
       },
       {
         protocol: 'https',
-        hostname: 'strapi.jaapvankooten.nl',
+        hostname: 'degrasmees-strapi.test.jaccovankooten.nl',
         pathname: '/uploads/**',
       }
     ],
