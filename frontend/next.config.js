@@ -1,9 +1,6 @@
 /** @type {import('next').NextConfig} */
 
 const nextConfig = {
-  // experimental: {
-  //     appDir: true,
-  // },
   images: {
     remotePatterns: [
       {
@@ -14,7 +11,12 @@ const nextConfig = {
       },
       {
         protocol: 'https',
-        hostname: 'degrasmees-strapi.test.jaccovankooten.nl',
+        hostname: '**.test.jaccovankooten.nl',
+        pathname: '/uploads/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'strapi.**',
         pathname: '/uploads/**',
       }
     ],
