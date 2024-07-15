@@ -12,10 +12,9 @@ import NextMedia from "@/components/global/Media/NextMedia"
 
 export default function Gallery(props: GalleryProps) {
   const { id, title, media } = props
-  if (!propertyExists(media?.data, "Gallery", "media")) return null
+  if (!propertyExists(media?.data, "Gallery", "media") || media.data.length === 0) return null
 
-  const firstMedia = media.data[0]
-  media.data.shift()
+  const [firstMedia, ...restMedia] = media.data // pick the first media item and spread the rest
 
   return (
     <div className={styles.block} id={title}>
@@ -24,7 +23,7 @@ export default function Gallery(props: GalleryProps) {
       </div>
       <div className={styles.media}>
         <MediaSlider
-          media={media}
+          media={{ data: restMedia }}
           settings={{
             breakpoints: {
               "(max-width: 250px)": {
@@ -62,7 +61,7 @@ export default function Gallery(props: GalleryProps) {
               },
             },
           }}
-        />
+        ></MediaSlider>
       </div>
     </div>
   )
