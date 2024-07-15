@@ -1,38 +1,46 @@
-"use client";
-
-import usePage from "@/Hooks/usePage.hook";
-import {sectionRenderer} from "@/utils/section-renderer";
-import React from "react";
-import {useGlobalContext} from "@/Contexts/global.context";
-import {NextSeo} from "next-seo";
-import Custom404 from "@/components/ErrorPages/Custom404";
-import useOverlay from "@/Hooks/useOverlay.hook";
+"use server"
+import { sectionRenderer } from "@/utils/section-renderer"
+import React from "react"
+import { NextSeo } from "next-seo"
+import App from "@/components/global/App"
+import getData from "@/utils/core/getData"
+import Script from "next/script"
 
 interface Props {
   params: {
-    slug: string;
-    lang: string;
-  };
+    slug: string
+    lang: string
+  }
 }
 
-export default function Page({params}: Props) {
-  const {slug} = params;
-  const {global} = useGlobalContext();
-  const {data: page, error} = usePage({slug, lang: params.lang});
-  useOverlay(page?.useOverlay || false);
+export default async function Page({ params }: Props) {
+  const { globalData, themeData, pageData } = await getData({
+    slug: params.slug,
+    lang: params.lang,
+  })
 
-  if (!page) return <Custom404 params={params}/>;
-  if (error) window.alert(error.message);
+  const { meta, sections } = pageData
 
-  const {title, meta, sections} = page || {};
-  const fullName = global?.personaldata?.fullName || "";
-
-  if (document) document.title = title || fullName
+  const metaText = {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    name: meta?.metaTitle || "",
+    description: meta?.metaDescription || "",
+  }
 
   return (
-    <div className="sections">
-      <NextSeo title={meta?.metaTitle || ""} description={meta?.metaDescription || ""}/>
-      {sections?.map((section: any, index: number) => sectionRenderer(section, params.lang, index))}
-    </div>
-  );
+    <App params={{ ...params, globalData, themeData, pageData }}>
+      <div className="sections">
+        {meta && (
+          <Script id="meta-schema" type="application/ld+json">
+            {JSON.stringify(metaText)}
+          </Script>
+        )}
+        <NextSeo title={metaText.name} description={metaText.description} />
+        {sections?.map((section: any, index: number) =>
+          sectionRenderer(section, params.lang, index)
+        )}
+      </div>
+    </App>
+  )
 }

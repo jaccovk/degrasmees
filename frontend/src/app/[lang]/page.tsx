@@ -1,42 +1,42 @@
-"use client";
-
-import usePage from "@/Hooks/usePage.hook";
-import {sectionRenderer} from "@/utils/section-renderer";
-import React, {useEffect} from "react";
-import {NextSeo} from "next-seo";
-import Script from "next/script";
-import useOverlay from "@/Hooks/useOverlay.hook";
-import Custom404 from "@/components/ErrorPages/Custom404";
+"use server"
+import { sectionRenderer } from "@/utils/section-renderer"
+import React from "react"
+import Script from "next/script"
+import getData from "@/utils/core/getData"
+import App from "@/components/global/App"
 
 interface HomeProps {
   params: {
-    lang: string;
-  };
+    lang: string
+  }
 }
 
-export default function Home({params}: HomeProps) {
-  const {data: home, error} = usePage({slug: "home", lang: params.lang})
-  useOverlay(home?.useOverlay || false);
-  const sections = home?.sections || [];
-
-  useEffect(() => {
-    document.title = home?.title || "Home"
-  }, [home]);
-  if (error) window.alert(error.message);
+export default async function Home({ params }: HomeProps) {
+  const { globalData, themeData, pageData } = await getData({
+    slug: "home",
+    lang: params.lang,
+  })
+  const { meta, sections } = pageData
 
   const metaText = {
     "@context": "https://schema.org",
     "@type": "WebPage",
-    name: home?.meta?.metaTitle || "",
-    description: home?.meta?.metaDescription || "",
-  };
-
-  if (!home) return <Custom404 params={params}/>;
+    name: meta?.metaTitle || "",
+    description: meta?.metaDescription || "",
+  }
 
   return (
-    <div className="sections">
-      {home?.meta && <Script id={"meta-schema"} type={"application/ld+json"}>{JSON.stringify(metaText)}</Script>}
-      <NextSeo title={home?.meta?.metaTitle || ""} description={home?.meta?.metaDescription || ""}/>
-      {sections?.map((section: any, index: number) => sectionRenderer(section, params.lang, index))}
-    </div>);
+    <App params={{ ...params, globalData, themeData, pageData }}>
+      <div className="sections">
+        {meta && (
+          <Script id="meta-schema" type="application/ld+json">
+            {JSON.stringify(metaText)}
+          </Script>
+        )}
+        {sections?.map((section: any, index: number) =>
+          sectionRenderer(section, params.lang, index)
+        )}
+      </div>
+    </App>
+  )
 }

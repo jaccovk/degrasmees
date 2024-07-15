@@ -10,6 +10,7 @@ const nextConfig = {
         pathname: '/uploads/**',
       },
       {
+
         protocol: 'https',
         hostname: '**.test.jaccovankooten.nl',
         pathname: '/uploads/**',
