@@ -1,5 +1,5 @@
 "use client"
-import React, { Suspense, useState } from "react"
+import React, { useState } from "react"
 import styles from "@/styles/global/Navbar.module.scss"
 import { LinkProps } from "@/Interfaces/strapi-components/link.interface"
 import CustomLink from "@/components/links/CustomLink"
@@ -9,7 +9,6 @@ import HamburgerMenu from "@/components/global/Navigation/HamburgerMenu"
 import MobileNavigationMenu from "@/components/global/Navigation/MobileNavigationMenu"
 import NextMedia from "@/components/global/Media/NextMedia"
 import { Parts } from "@/Interfaces/api.interface"
-import ImageSkeleton from "@/components/skeletons/ImageSkeleton"
 
 function NavLink(props: { link: LinkProps }) {
   const { link } = props
@@ -34,9 +33,7 @@ export default function Navbar() {
       <nav className={styles.navigation}>
         <div className={styles.block}>
           <div className={styles.logo}>
-            {/*<Suspense fallback={<ImageSkeleton/>}>*/}
-            {/*  <NextMedia media={logo} isLink />*/}
-            {/*</Suspense>*/}
+            <NextMedia media={logo} isLink />
             {global?.personaldata?.fullName || ""}
           </div>
           <div className={styles.content}>
