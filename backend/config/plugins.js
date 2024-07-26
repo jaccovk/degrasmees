@@ -6,11 +6,6 @@ module.exports = ({ env }) => ({
         host: 'localhost',
         port: 25,
         ignoreTLS: true,
-        // auth: {
-        // user: env('SMTP_USERNAME'),
-        // pass: env('SMTP_PASSWORD'),
-        // },
-        // ... any custom nodemailer options
       },
       settings: {
         defaultFrom: env('MAIL_DEFAULT_FROM'),
