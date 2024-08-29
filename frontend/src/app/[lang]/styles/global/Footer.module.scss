@@ -1,0 +1,36 @@
+@import '@/styles/typography';
+
+.block {
+  @include flex;
+}
+
+.content {
+  @include flex($align: flex-start, $direction: row, $gap: $spacing-2xl);
+  @include smallDevice {
+    flex-direction: column;
+    gap: $spacing-lg;
+  }
+
+  .logo {
+    font-size: $font-size-xl;
+  }
+
+  ul {
+    @include flex($align: flex-start, $gap: $spacing-xs);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    > :first-child {
+      font-weight: bold;
+    }
+  }
+}
+
+.practical_info {
+  @include flex(space-between);
+  padding-bottom: $spacing-base;
+}
+
+.social_links {
+
+}

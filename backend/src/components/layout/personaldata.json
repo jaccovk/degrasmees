@@ -17,6 +17,27 @@
       "allowedTypes": [
         "images"
       ]
+    },
+    "email": {
+      "type": "email"
+    },
+    "googleMapsLink": {
+      "type": "text"
+    },
+    "address": {
+      "type": "string"
+    },
+    "city": {
+      "type": "string"
+    },
+    "phone": {
+      "displayName": "Phone",
+      "type": "component",
+      "repeatable": false,
+      "component": "elements.phone"
+    },
+    "zipCode": {
+      "type": "string"
     }
   }
 }

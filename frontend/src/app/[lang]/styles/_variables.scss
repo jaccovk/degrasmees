@@ -27,7 +27,7 @@ $breakpoint-sm: 576px;
 $breakpoint-md: 768px;
 $breakpoint-lg: 1024px;
 $breakpoint-xl: 1200px;
-$breakpoint-2xl: 1400px;
+$breakpoint-2xl: 1440px;
 
 // SPACING
 $spacing-xs: 0.5rem;
@@ -35,6 +35,7 @@ $spacing-base: 1rem;
 $spacing-md: 1.5rem;
 $spacing-lg: 2rem;
 $spacing-xl: 3rem;
+$spacing-2xl: 5rem;
 
 // SVG SIZES
 $svg-size-sm: 24px;
@@ -55,8 +56,8 @@ $font-weight-medium: 500;
 $font-weight-bold: 700;
 
 // MARGINS
-$sections-padding: 1rem;
-$sections-padding-lg: 2rem;
+$sections-padding: 5vh;
+$sections-padding-lg: 8vh;
 
 // GRADIENTS
 $gradient-light: linear-gradient(0deg, $gray-light 0%, $gray-light 80%, transparent 100%);

@@ -7,11 +7,12 @@ import { useGlobalContext } from "@/Contexts/global.context"
 
 import NextMedia from "@/components/global/Media/NextMedia"
 import { Parts } from "@/Interfaces/api.interface"
+import PersonalData from "base/components/collections/global/PersonalData"
 
 export default function Footer() {
   const { global } = useGlobalContext()
 
-  const logo = global.navigation?.logoFooter?.data || ({} as Parts)
+  const logo = global.navigation?.logoFooter?.data
   const links: LinkProps[] = global.navigation?.links || ([] as LinkProps[])
   const socialLinks: SocialLinkProps[] =
     global?.navigation?.socialLinks || ([] as SocialLinkProps[])
@@ -19,13 +20,17 @@ export default function Footer() {
   return (
     <footer className={styles.block}>
       <div className={styles.content}>
+        {/*{logo && (*/}
         <div className={styles.logo}>
-          {logo && <NextMedia media={logo} width={50} height={50} isLink />}
+          {global?.personaldata?.fullName || ""}
+          {/*<NextMedia media={logo} width={50} height={50} isLink />*/}
         </div>
+        {/*)}*/}
+        <PersonalData></PersonalData>
       </div>
       <hr />
       <div className={styles.practical_info}>
-        <span>©{new Date().getFullYear()} All rights reserved</span>
+        <span>©{new Date().getFullYear()} by Jacco van Kooten</span>
         <div className={styles.social_links}>
           {socialLinks &&
             socialLinks.map((link: SocialLinkProps) => {

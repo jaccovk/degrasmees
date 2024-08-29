@@ -2,14 +2,15 @@
 
 .small {
   .overlay {
-    height: 50vh;
+    height: 45vh;
   }
 }
 
 .large {
   .overlay {
-    height: 100vh;
+    height: 90vh;
   }
+
   .content {
     @include flex(center);
     text-align: center;
@@ -23,9 +24,12 @@
 }
 
 .overlay {
+  position: relative;
   width: 100%;
-  img, video { // TODO : position fixed
+  img, video {
     animation: zoom 20s ease-in-out infinite;
+    position: absolute;
+    bottom: 0;
   }
 }
 
@@ -47,7 +51,7 @@
     transform: scale(1);
   }
   50% {
-    transform: scale(1.1);
+    transform: scale(1.2);
   }
   100% {
     transform: scale(1);

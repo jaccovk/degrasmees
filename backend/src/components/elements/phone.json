@@ -1,0 +1,17 @@
+{
+  "collectionName": "components_elements_phones",
+  "info": {
+    "displayName": "Phone",
+    "icon": "phone"
+  },
+  "options": {},
+  "attributes": {
+    "number": {
+      "type": "string"
+    },
+    "link": {
+      "type": "integer",
+      "default": 612345678
+    }
+  }
+}

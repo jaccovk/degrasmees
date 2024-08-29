@@ -24,6 +24,18 @@ export interface ElementsKeyValue extends Schema.Component {
   };
 }
 
+export interface ElementsPhone extends Schema.Component {
+  collectionName: 'components_elements_phones';
+  info: {
+    displayName: 'Phone';
+    icon: 'phone';
+  };
+  attributes: {
+    number: Attribute.String;
+    link: Attribute.Integer & Attribute.DefaultTo<612345678>;
+  };
+}
+
 export interface ElementsRow extends Schema.Component {
   collectionName: 'components_elements_rows';
   info: {
@@ -133,6 +145,12 @@ export interface LayoutPersonaldata extends Schema.Component {
   attributes: {
     fullName: Attribute.String;
     favicon: Attribute.Media;
+    email: Attribute.Email;
+    googleMapsLink: Attribute.Text;
+    address: Attribute.String;
+    city: Attribute.String;
+    phone: Attribute.Component<'elements.phone'>;
+    zipCode: Attribute.String;
   };
 }
 
@@ -274,6 +292,7 @@ declare module '@strapi/types' {
     export interface Components {
       'elements.column': ElementsColumn;
       'elements.key-value': ElementsKeyValue;
+      'elements.phone': ElementsPhone;
       'elements.row': ElementsRow;
       'layout.colors': LayoutColors;
       'layout.meta': LayoutMeta;

@@ -39,6 +39,10 @@ main {
   background-color: $backgroundSecondary;
   color: $textPrimary;
 
+  span {
+    color: $textPrimary;
+  }
+
   .navigation-container, .mobile-navigation {
     background-color: $backgroundSecondary;
   }
@@ -60,8 +64,9 @@ main {
   background-color: $backgroundPrimary;
   color: $textSecondary;
 
-  .navigation-container, .mobile-navigation {
+  .navigation-container, .mobile-navigation, span, main {
     background-color: $backgroundPrimary;
+    color: $textSecondary;
   }
 
   .storyline-float-stroke {
@@ -94,12 +99,14 @@ h1 {
   font-weight: $font-weight-base;
   line-height: 1.2;
   color: $secondary;
+  margin: 0;
 }
 
 h2 {
-  font-size: $font-size-3xl;
+  font-size: $font-size-5xl;
   font-weight: $font-weight-bold;
   color: $secondary;
+  margin: 0;
 }
 
 h3 {
@@ -107,6 +114,11 @@ h3 {
   font-size: $font-size-2xl;
   font-weight: $font-weight-bold;
   color: $secondary;
+  margin: 0;
+}
+
+h4, h5, h6 {
+  margin: 0;
 }
 
 p {
@@ -120,6 +132,7 @@ hr {
   margin-bottom: 1.5rem;
   border-top-width: 1px;
   border-color: $gray-dark;
+  width: 100%;
 }
 
 a {
@@ -171,13 +184,15 @@ a {
 
 // Sections +=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=
 .sections {
-  > div {
-    padding: $sections-padding 0;
-  }
+  margin-top: $sections-padding-lg;
+  margin-bottom: $sections-padding-lg;
+  display: flex;
+  flex-direction: column;
+  gap: $sections-padding-lg;
 
   // ...except the first one
   > div:first-child {
-    padding-top: 0;
+    margin-top: 0;
   }
 }
 

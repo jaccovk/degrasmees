@@ -33,8 +33,8 @@ export default function Navbar() {
       <nav className={styles.navigation}>
         <div className={styles.block}>
           <div className={styles.logo}>
-            <NextMedia media={logo} isLink />
-            {global?.personaldata?.fullName || ""}
+            {/*<NextMedia media={logo} isLink />*/}
+            <span>{global?.personaldata?.fullName || ""}</span>
           </div>
           <div className={styles.content}>
             <ul>{links && links.map((link) => <NavLink key={link.id} link={link} />)}</ul>

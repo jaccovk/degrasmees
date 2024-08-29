@@ -3,12 +3,8 @@
 .block {
   text-align: center;
   @include flex;
-
-  h2 {
-    margin: 0;
-  }
 }
 
 .content {
-  @include innerContainer(true);
+  @include innerContainer;
 }
