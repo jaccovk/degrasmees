@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_elements_key_values",
+  "info": {
+    "displayName": "Key Value",
+    "icon": "bulletList"
+  },
+  "options": {},
+  "attributes": {
+    "key": {
+      "type": "string",
+      "regex": "^[a-z0-9_]*$",
+      "required": true
+    },
+    "value": {
+      "type": "text"
+    }
+  }
+}

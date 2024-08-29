@@ -12,6 +12,18 @@ export interface ElementsColumn extends Schema.Component {
   };
 }
 
+export interface ElementsKeyValue extends Schema.Component {
+  collectionName: 'components_elements_key_values';
+  info: {
+    displayName: 'Key Value';
+    icon: 'bulletList';
+  };
+  attributes: {
+    key: Attribute.String & Attribute.Required;
+    value: Attribute.Text;
+  };
+}
+
 export interface ElementsRow extends Schema.Component {
   collectionName: 'components_elements_rows';
   info: {
@@ -261,6 +273,7 @@ declare module '@strapi/types' {
   export module Shared {
     export interface Components {
       'elements.column': ElementsColumn;
+      'elements.key-value': ElementsKeyValue;
       'elements.row': ElementsRow;
       'layout.colors': LayoutColors;
       'layout.meta': LayoutMeta;

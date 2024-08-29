@@ -39,9 +39,6 @@
   h1 {
     @include fitText;
     color: $textSecondary;
-    @include largeDevice {
-      font-size: responsiveSpacing();
-    }
   }
 }
 

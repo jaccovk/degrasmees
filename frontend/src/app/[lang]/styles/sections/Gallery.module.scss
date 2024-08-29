@@ -8,36 +8,15 @@
 .overlay {
   img {
     width: 100%;
-    height: 500px;
-
-    @include smallDevice {
-      height: 300px;
-    }
+    aspect-ratio: 5/1;
   }
 }
 
-.media {
-  z-index: 1;
+.sliderItem {
+  @include flex();
 
-  :global(.keen-slider__slide) {
-    @include flex;
-
-    img, video {
-      width: 470px;
-      height: 470px;
-      border-radius: 50%;
-
-      @include smallDevice {
-        width: 235px;
-        height: 235px;
-      }
-
-      @include smallDevice(calc($breakpoint-xs - 20px)) {
-        width: 200px;
-        height: 200px;
-      }
-    }
+  img {
+    border-radius: 50%;
+    object-fit: cover;
   }
 }
-
-
