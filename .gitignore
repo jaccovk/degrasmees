@@ -8,3 +8,5 @@ frontend/src/base
 yarn.lock
 
 **/yarn.lock
+
+files.tgz
