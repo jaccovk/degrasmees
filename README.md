@@ -14,6 +14,9 @@ Run `yarn start` to start the frontend and backend on the development server.
 ### Good to know [Development]
 - Run `bash push-files.sh` to push the _frontend/public/uploads_ folder to the server.
 
+## Must Do's
+- Add `plugin` to Strapi Form Builder that adds to the fields: (if A than B)
+
 ## To Do's 
 ### general
 - Fix `Server Side Components`; each section should fetch its own data

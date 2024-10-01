@@ -1,10 +1,10 @@
 {
   "kind": "collectionType",
-  "collectionName": "pages",
+  "collectionName": "form_builders",
   "info": {
-    "singularName": "page",
-    "pluralName": "pages",
-    "displayName": "Pagina",
+    "singularName": "form-builder",
+    "pluralName": "form-builders",
+    "displayName": "Form Builder",
     "description": ""
   },
   "options": {
@@ -17,35 +17,30 @@
   },
   "attributes": {
     "title": {
-      "type": "string",
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      }
-    },
-    "meta": {
-      "displayName": "meta",
-      "type": "component",
-      "repeatable": false,
-      "component": "layout.meta",
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      }
-    },
-    "slug": {
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
       },
-      "type": "uid",
-      "targetField": "title",
-      "required": true
+      "type": "string"
     },
-    "sections": {
+    "content": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "richtext"
+    },
+    "email": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "email"
+    },
+    "fields": {
       "pluginOptions": {
         "i18n": {
           "localized": true
@@ -53,23 +48,24 @@
       },
       "type": "dynamiczone",
       "components": [
-        "sections.hero",
-        "sections.media-float",
-        "sections.textarea",
-        "sections.storyline-float",
-        "sections.gallery",
-        "sections.grid",
-        "sections.form-selector"
-      ]
+        "form.textfield",
+        "form.emailfield",
+        "form.telephonefield",
+        "form.textareafield",
+        "form.uploadfield"
+      ],
+      "required": true,
+      "min": 1
     },
-    "useOverlay": {
+    "submit": {
+      "type": "component",
+      "repeatable": false,
       "pluginOptions": {
         "i18n": {
-          "localized": false
+          "localized": true
         }
       },
-      "type": "boolean",
-      "default": false,
+      "component": "link.button",
       "required": true
     }
   }

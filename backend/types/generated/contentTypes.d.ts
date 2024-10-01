@@ -885,6 +885,96 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
   };
 }
 
+export interface ApiFormBuilderFormBuilder extends Schema.CollectionType {
+  collectionName: 'form_builders';
+  info: {
+    singularName: 'form-builder';
+    pluralName: 'form-builders';
+    displayName: 'Form Builder';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    title: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    content: Attribute.RichText &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    email: Attribute.Email &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    fields: Attribute.DynamicZone<
+      [
+        'form.textfield',
+        'form.emailfield',
+        'form.telephonefield',
+        'form.textareafield',
+        'form.uploadfield'
+      ]
+    > &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }> &
+      Attribute.SetMinMax<
+        {
+          min: 1;
+        },
+        number
+      >;
+    submit: Attribute.Component<'link.button'> &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::form-builder.form-builder',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::form-builder.form-builder',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    sitemap_exclude: Attribute.Boolean &
+      Attribute.Private &
+      Attribute.DefaultTo<false>;
+    localizations: Attribute.Relation<
+      'api::form-builder.form-builder',
+      'oneToMany',
+      'api::form-builder.form-builder'
+    >;
+    locale: Attribute.String;
+  };
+}
+
 export interface ApiGlobalGlobal extends Schema.SingleType {
   collectionName: 'globals';
   info: {
@@ -980,7 +1070,8 @@ export interface ApiHomeHome extends Schema.SingleType {
         'sections.textarea',
         'sections.storyline-float',
         'sections.grid',
-        'sections.gallery'
+        'sections.gallery',
+        'sections.form-selector'
       ]
     > &
       Attribute.SetPluginOptions<{
@@ -1057,7 +1148,8 @@ export interface ApiPagePage extends Schema.CollectionType {
         'sections.textarea',
         'sections.storyline-float',
         'sections.gallery',
-        'sections.grid'
+        'sections.grid',
+        'sections.form-selector'
       ]
     > &
       Attribute.SetPluginOptions<{
@@ -1191,6 +1283,7 @@ declare module '@strapi/types' {
       'plugin::users-permissions.permission': PluginUsersPermissionsPermission;
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
+      'api::form-builder.form-builder': ApiFormBuilderFormBuilder;
       'api::global.global': ApiGlobalGlobal;
       'api::home.home': ApiHomeHome;
       'api::page.page': ApiPagePage;

@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_form_emailfields",
+  "info": {
+    "displayName": "Emailfield",
+    "icon": "user"
+  },
+  "options": {},
+  "attributes": {
+    "label": {
+      "type": "string"
+    },
+    "placeholder": {
+      "type": "string"
+    },
+    "required": {
+      "type": "boolean"
+    },
+    "help": {
+      "type": "string"
+    }
+  }
+}

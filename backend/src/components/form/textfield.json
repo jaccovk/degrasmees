@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_form_textfields",
+  "info": {
+    "displayName": "Textfield",
+    "icon": "file"
+  },
+  "options": {},
+  "attributes": {
+    "label": {
+      "type": "string"
+    },
+    "placeholder": {
+      "type": "string"
+    },
+    "help": {
+      "type": "string"
+    },
+    "required": {
+      "type": "boolean"
+    }
+  }
+}

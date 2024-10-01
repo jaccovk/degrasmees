@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_form_telephonefields",
+  "info": {
+    "displayName": "Telephonefield",
+    "icon": "phone"
+  },
+  "options": {},
+  "attributes": {
+    "label": {
+      "type": "string"
+    },
+    "placeholder": {
+      "type": "string"
+    },
+    "help": {
+      "type": "string"
+    },
+    "required": {
+      "type": "boolean"
+    }
+  }
+}
