@@ -16,6 +16,7 @@ Run `yarn start` to start the frontend and backend on the development server.
 
 ## Must Do's
 - Add `plugin` to Strapi Form Builder that adds to the fields: (if A than B)
+- `"@ef2/strapi-plugin-bold-title-editor": "^1.0.9"` is not working since Strapi v5; search for alternative
 
 ## To Do's 
 ### general

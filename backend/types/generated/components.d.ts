@@ -1,63 +1,18 @@
-import type { Schema, Attribute } from '@strapi/strapi';
+import type { Struct, Schema } from '@strapi/strapi';
 
-export interface LinkSocialLink extends Schema.Component {
-  collectionName: 'components_link_social_links';
-  info: {
-    displayName: 'Social Link';
-    icon: 'twitter';
-    description: '';
-  };
-  attributes: {
-    url: Attribute.String & Attribute.Required;
-    icon: Attribute.Media<'images', true> & Attribute.Required;
-  };
-}
-
-export interface LinkLink extends Schema.Component {
-  collectionName: 'components_link_links';
-  info: {
-    displayName: 'Link';
-    icon: 'bulletList';
-    description: '';
-  };
-  attributes: {
-    url: Attribute.String & Attribute.Required;
-    newTab: Attribute.Boolean & Attribute.Required & Attribute.DefaultTo<false>;
-    text: Attribute.String & Attribute.Required;
-    icon: Attribute.Media<'images'>;
-    iconPosition: Attribute.Enumeration<['left', 'right']> &
-      Attribute.DefaultTo<'right'>;
-  };
-}
-
-export interface LinkButton extends Schema.Component {
-  collectionName: 'components_button_buttons';
-  info: {
-    displayName: 'Button';
-    icon: 'cursor';
-    description: '';
-  };
-  attributes: {
-    text: Attribute.String;
-    type: Attribute.Enumeration<['primary', 'secondary']> &
-      Attribute.Required &
-      Attribute.DefaultTo<'primary'>;
-  };
-}
-
-export interface SectionsTextarea extends Schema.Component {
+export interface SectionsTextarea extends Struct.ComponentSchema {
   collectionName: 'components_sections_textareas';
   info: {
     displayName: 'Textarea';
     icon: 'file';
   };
   attributes: {
-    title: Attribute.String;
-    content: Attribute.RichText;
+    title: Schema.Attribute.String;
+    content: Schema.Attribute.RichText;
   };
 }
 
-export interface SectionsStorylineFloat extends Schema.Component {
+export interface SectionsStorylineFloat extends Struct.ComponentSchema {
   collectionName: 'components_sections_storyline_floats';
   info: {
     displayName: 'StorylineFloat';
@@ -65,17 +20,19 @@ export interface SectionsStorylineFloat extends Schema.Component {
     description: '';
   };
   attributes: {
-    year: Attribute.Integer & Attribute.Required & Attribute.DefaultTo<1999>;
-    title: Attribute.String;
-    content: Attribute.RichText;
-    float: Attribute.Enumeration<['left', 'right']> &
-      Attribute.Required &
-      Attribute.DefaultTo<'left'>;
-    media: Attribute.Media<'images' | 'videos', true>;
+    year: Schema.Attribute.Integer &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<1999>;
+    title: Schema.Attribute.String;
+    content: Schema.Attribute.RichText;
+    float: Schema.Attribute.Enumeration<['left', 'right']> &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<'left'>;
+    media: Schema.Attribute.Media<'images' | 'videos', true>;
   };
 }
 
-export interface SectionsMediaFloat extends Schema.Component {
+export interface SectionsMediaFloat extends Struct.ComponentSchema {
   collectionName: 'components_sections_media_floats';
   info: {
     displayName: 'MediaFloat';
@@ -83,17 +40,17 @@ export interface SectionsMediaFloat extends Schema.Component {
     description: '';
   };
   attributes: {
-    title: Attribute.String;
-    content: Attribute.RichText;
-    media: Attribute.Media<'images' | 'videos', true>;
-    float: Attribute.Enumeration<['left', 'right']> &
-      Attribute.Required &
-      Attribute.DefaultTo<'left'>;
-    actions: Attribute.Component<'link.link', true>;
+    title: Schema.Attribute.String;
+    content: Schema.Attribute.RichText;
+    media: Schema.Attribute.Media<'images' | 'videos', true>;
+    float: Schema.Attribute.Enumeration<['left', 'right']> &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<'left'>;
+    actions: Schema.Attribute.Component<'link.link', true>;
   };
 }
 
-export interface SectionsHero extends Schema.Component {
+export interface SectionsHero extends Struct.ComponentSchema {
   collectionName: 'components_sections_heroes';
   info: {
     displayName: 'Hero';
@@ -101,54 +58,105 @@ export interface SectionsHero extends Schema.Component {
     description: '';
   };
   attributes: {
-    posters: Attribute.Media<'images' | 'files' | 'videos' | 'audios', true>;
-    titles: Attribute.JSON;
-    size: Attribute.Enumeration<['small', 'large']> &
-      Attribute.Required &
-      Attribute.DefaultTo<'large'>;
-    typed: Attribute.Boolean & Attribute.Required & Attribute.DefaultTo<true>;
+    posters: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios',
+      true
+    >;
+    titles: Schema.Attribute.JSON;
+    size: Schema.Attribute.Enumeration<['small', 'large']> &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<'large'>;
+    typed: Schema.Attribute.Boolean &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<true>;
   };
 }
 
-export interface SectionsGrid extends Schema.Component {
+export interface SectionsGrid extends Struct.ComponentSchema {
   collectionName: 'components_sections_grids';
   info: {
     displayName: 'Grid';
     icon: 'apps';
   };
   attributes: {
-    rows: Attribute.Component<'elements.row', true>;
-    title: Attribute.String;
+    rows: Schema.Attribute.Component<'elements.row', true>;
+    title: Schema.Attribute.String;
   };
 }
 
-export interface SectionsGallery extends Schema.Component {
+export interface SectionsGallery extends Struct.ComponentSchema {
   collectionName: 'components_sections_galleries';
   info: {
     displayName: 'Gallery';
   };
   attributes: {
-    title: Attribute.String;
-    media: Attribute.Media<'images' | 'videos', true>;
+    title: Schema.Attribute.String;
+    media: Schema.Attribute.Media<'images' | 'videos', true>;
   };
 }
 
-export interface SectionsFormSelector extends Schema.Component {
+export interface SectionsFormSelector extends Struct.ComponentSchema {
   collectionName: 'components_sections_form_selectors';
   info: {
     displayName: 'Form Selector';
     icon: 'file';
   };
   attributes: {
-    form: Attribute.Relation<
-      'sections.form-selector',
+    form: Schema.Attribute.Relation<
       'oneToOne',
       'api::form-builder.form-builder'
     >;
   };
 }
 
-export interface LayoutPersonaldata extends Schema.Component {
+export interface LinkSocialLink extends Struct.ComponentSchema {
+  collectionName: 'components_link_social_links';
+  info: {
+    displayName: 'Social Link';
+    icon: 'twitter';
+    description: '';
+  };
+  attributes: {
+    url: Schema.Attribute.String & Schema.Attribute.Required;
+    icon: Schema.Attribute.Media<'images', true> & Schema.Attribute.Required;
+  };
+}
+
+export interface LinkLink extends Struct.ComponentSchema {
+  collectionName: 'components_link_links';
+  info: {
+    displayName: 'Link';
+    icon: 'bulletList';
+    description: '';
+  };
+  attributes: {
+    url: Schema.Attribute.String & Schema.Attribute.Required;
+    newTab: Schema.Attribute.Boolean &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<false>;
+    text: Schema.Attribute.String & Schema.Attribute.Required;
+    icon: Schema.Attribute.Media<'images'>;
+    iconPosition: Schema.Attribute.Enumeration<['left', 'right']> &
+      Schema.Attribute.DefaultTo<'right'>;
+  };
+}
+
+export interface LinkButton extends Struct.ComponentSchema {
+  collectionName: 'components_button_buttons';
+  info: {
+    displayName: 'Button';
+    icon: 'cursor';
+    description: '';
+  };
+  attributes: {
+    text: Schema.Attribute.String;
+    type: Schema.Attribute.Enumeration<['primary', 'secondary']> &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<'primary'>;
+  };
+}
+
+export interface LayoutPersonaldata extends Struct.ComponentSchema {
   collectionName: 'components_layout_personaldata';
   info: {
     displayName: 'Persoonlijke gegevens';
@@ -156,18 +164,18 @@ export interface LayoutPersonaldata extends Schema.Component {
     description: '';
   };
   attributes: {
-    fullName: Attribute.String;
-    favicon: Attribute.Media<'images'>;
-    email: Attribute.Email;
-    googleMapsLink: Attribute.Text;
-    address: Attribute.String;
-    city: Attribute.String;
-    phone: Attribute.Component<'elements.phone'>;
-    zipCode: Attribute.String;
+    fullName: Schema.Attribute.String;
+    favicon: Schema.Attribute.Media<'images'>;
+    email: Schema.Attribute.Email;
+    googleMapsLink: Schema.Attribute.Text;
+    address: Schema.Attribute.String;
+    city: Schema.Attribute.String;
+    phone: Schema.Attribute.Component<'elements.phone', false>;
+    zipCode: Schema.Attribute.String;
   };
 }
 
-export interface LayoutNavigation extends Schema.Component {
+export interface LayoutNavigation extends Struct.ComponentSchema {
   collectionName: 'components_layout_navigations';
   info: {
     displayName: 'Navigatie';
@@ -175,14 +183,14 @@ export interface LayoutNavigation extends Schema.Component {
     description: '';
   };
   attributes: {
-    links: Attribute.Component<'link.link', true>;
-    logo: Attribute.Media<'images'>;
-    socialLinks: Attribute.Component<'link.social-link', true>;
-    logoFooter: Attribute.Media<'images'>;
+    links: Schema.Attribute.Component<'link.link', true>;
+    logo: Schema.Attribute.Media<'images'>;
+    socialLinks: Schema.Attribute.Component<'link.social-link', true>;
+    logoFooter: Schema.Attribute.Media<'images'>;
   };
 }
 
-export interface LayoutMeta extends Schema.Component {
+export interface LayoutMeta extends Struct.ComponentSchema {
   collectionName: 'components_layout_metas';
   info: {
     displayName: 'meta';
@@ -190,12 +198,12 @@ export interface LayoutMeta extends Schema.Component {
     description: '';
   };
   attributes: {
-    metaTitle: Attribute.String;
-    metaDescription: Attribute.Text;
+    metaTitle: Schema.Attribute.String;
+    metaDescription: Schema.Attribute.Text;
   };
 }
 
-export interface LayoutColors extends Schema.Component {
+export interface LayoutColors extends Struct.ComponentSchema {
   collectionName: 'components_layout_colors';
   info: {
     displayName: 'colors';
@@ -203,59 +211,59 @@ export interface LayoutColors extends Schema.Component {
     description: '';
   };
   attributes: {
-    primary: Attribute.String &
-      Attribute.Required &
-      Attribute.SetMinMaxLength<{
+    primary: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetMinMaxLength<{
         minLength: 4;
         maxLength: 7;
       }> &
-      Attribute.DefaultTo<'#ccc'>;
-    secondary: Attribute.String &
-      Attribute.Required &
-      Attribute.SetMinMaxLength<{
+      Schema.Attribute.DefaultTo<'#ccc'>;
+    secondary: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetMinMaxLength<{
         minLength: 4;
         maxLength: 7;
       }> &
-      Attribute.DefaultTo<'#ccc'>;
-    textPrimary: Attribute.String &
-      Attribute.Required &
-      Attribute.SetMinMaxLength<{
+      Schema.Attribute.DefaultTo<'#ccc'>;
+    textPrimary: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetMinMaxLength<{
         minLength: 4;
         maxLength: 7;
       }> &
-      Attribute.DefaultTo<'#000'>;
-    textSecondary: Attribute.String &
-      Attribute.Required &
-      Attribute.SetMinMaxLength<{
+      Schema.Attribute.DefaultTo<'#000'>;
+    textSecondary: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetMinMaxLength<{
         minLength: 4;
         maxLength: 7;
       }> &
-      Attribute.DefaultTo<'#fff'>;
-    backgroundPrimary: Attribute.String &
-      Attribute.Required &
-      Attribute.SetMinMaxLength<{
+      Schema.Attribute.DefaultTo<'#fff'>;
+    backgroundPrimary: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetMinMaxLength<{
         minLength: 4;
         maxLength: 7;
       }> &
-      Attribute.DefaultTo<'#111'>;
-    backgroundSecondary: Attribute.String &
-      Attribute.Required &
-      Attribute.SetMinMaxLength<{
+      Schema.Attribute.DefaultTo<'#111'>;
+    backgroundSecondary: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetMinMaxLength<{
         minLength: 4;
         maxLength: 7;
       }> &
-      Attribute.DefaultTo<'#fff'>;
-    tertiary: Attribute.String &
-      Attribute.Required &
-      Attribute.SetMinMaxLength<{
+      Schema.Attribute.DefaultTo<'#fff'>;
+    tertiary: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetMinMaxLength<{
         minLength: 4;
         maxLength: 7;
       }> &
-      Attribute.DefaultTo<'#ccc'>;
+      Schema.Attribute.DefaultTo<'#ccc'>;
   };
 }
 
-export interface FormUploadfield extends Schema.Component {
+export interface FormUploadfield extends Struct.ComponentSchema {
   collectionName: 'components_form_uploadfields';
   info: {
     displayName: 'Uploadfield';
@@ -263,137 +271,133 @@ export interface FormUploadfield extends Schema.Component {
     description: '';
   };
   attributes: {
-    label: Attribute.String;
-    help: Attribute.String;
-    required: Attribute.Boolean;
-    placeholder: Attribute.Media<'images'>;
+    label: Schema.Attribute.String;
+    help: Schema.Attribute.String;
+    required: Schema.Attribute.Boolean;
+    placeholder: Schema.Attribute.Media<'images'>;
   };
 }
 
-export interface FormTextfield extends Schema.Component {
+export interface FormTextfield extends Struct.ComponentSchema {
   collectionName: 'components_form_textfields';
   info: {
     displayName: 'Textfield';
     icon: 'file';
   };
   attributes: {
-    label: Attribute.String;
-    placeholder: Attribute.String;
-    help: Attribute.String;
-    required: Attribute.Boolean;
+    label: Schema.Attribute.String;
+    placeholder: Schema.Attribute.String;
+    help: Schema.Attribute.String;
+    required: Schema.Attribute.Boolean;
   };
 }
 
-export interface FormTextareafield extends Schema.Component {
+export interface FormTextareafield extends Struct.ComponentSchema {
   collectionName: 'components_form_textareafields';
   info: {
     displayName: 'Textareafield';
     icon: 'file';
   };
   attributes: {
-    label: Attribute.String;
-    placeholder: Attribute.String;
-    help: Attribute.String;
-    required: Attribute.Boolean;
+    label: Schema.Attribute.String;
+    placeholder: Schema.Attribute.String;
+    help: Schema.Attribute.String;
+    required: Schema.Attribute.Boolean;
   };
 }
 
-export interface FormTelephonefield extends Schema.Component {
+export interface FormTelephonefield extends Struct.ComponentSchema {
   collectionName: 'components_form_telephonefields';
   info: {
     displayName: 'Telephonefield';
     icon: 'phone';
   };
   attributes: {
-    label: Attribute.String;
-    placeholder: Attribute.String;
-    help: Attribute.String;
-    required: Attribute.Boolean;
+    label: Schema.Attribute.String;
+    placeholder: Schema.Attribute.String;
+    help: Schema.Attribute.String;
+    required: Schema.Attribute.Boolean;
   };
 }
 
-export interface FormFormSelector extends Schema.Component {
+export interface FormFormSelector extends Struct.ComponentSchema {
   collectionName: 'components_form_form_selectors';
   info: {
     displayName: 'Form Selector';
     icon: 'file';
   };
   attributes: {
-    form: Attribute.Relation<
-      'form.form-selector',
+    form: Schema.Attribute.Relation<
       'oneToOne',
       'api::form-builder.form-builder'
     >;
   };
 }
 
-export interface FormEmailfield extends Schema.Component {
+export interface FormEmailfield extends Struct.ComponentSchema {
   collectionName: 'components_form_emailfields';
   info: {
     displayName: 'Emailfield';
     icon: 'user';
   };
   attributes: {
-    label: Attribute.String;
-    placeholder: Attribute.String;
-    required: Attribute.Boolean;
-    help: Attribute.String;
+    label: Schema.Attribute.String;
+    placeholder: Schema.Attribute.String;
+    required: Schema.Attribute.Boolean;
+    help: Schema.Attribute.String;
   };
 }
 
-export interface ElementsRow extends Schema.Component {
+export interface ElementsRow extends Struct.ComponentSchema {
   collectionName: 'components_elements_rows';
   info: {
     displayName: 'Row';
     icon: 'arrowRight';
   };
   attributes: {
-    columns: Attribute.Component<'elements.column', true>;
+    columns: Schema.Attribute.Component<'elements.column', true>;
   };
 }
 
-export interface ElementsPhone extends Schema.Component {
+export interface ElementsPhone extends Struct.ComponentSchema {
   collectionName: 'components_elements_phones';
   info: {
     displayName: 'Phone';
     icon: 'phone';
   };
   attributes: {
-    number: Attribute.String;
-    link: Attribute.Integer & Attribute.DefaultTo<612345678>;
+    number: Schema.Attribute.String;
+    link: Schema.Attribute.Integer & Schema.Attribute.DefaultTo<612345678>;
   };
 }
 
-export interface ElementsKeyValue extends Schema.Component {
+export interface ElementsKeyValue extends Struct.ComponentSchema {
   collectionName: 'components_elements_key_values';
   info: {
     displayName: 'Key Value';
     icon: 'bulletList';
   };
   attributes: {
-    key: Attribute.String & Attribute.Required;
-    value: Attribute.Text;
+    key: Schema.Attribute.String & Schema.Attribute.Required;
+    value: Schema.Attribute.Text;
   };
 }
 
-export interface ElementsColumn extends Schema.Component {
+export interface ElementsColumn extends Struct.ComponentSchema {
   collectionName: 'components_elements_columns';
   info: {
     displayName: 'Column';
     icon: 'arrowRight';
   };
   attributes: {
-    text: Attribute.String;
-    media: Attribute.Media<'images' | 'videos', true>;
+    text: Schema.Attribute.String;
+    media: Schema.Attribute.Media<'images' | 'videos', true>;
   };
 }
 
-declare module '@strapi/types' {
-  export module Shared {
-    export interface Components {
-      'link.social-link': LinkSocialLink;
-      'link.link': LinkLink;
-      'link.button': LinkButton;
+declare module '@strapi/strapi' {
+  export module Public {
+    export interface ComponentSchemas {
       'sections.textarea': SectionsTextarea;
       'sections.storyline-float': SectionsStorylineFloat;
       'sections.media-float': SectionsMediaFloat;
@@ -401,6 +405,9 @@ declare module '@strapi/types' {
       'sections.grid': SectionsGrid;
       'sections.gallery': SectionsGallery;
       'sections.form-selector': SectionsFormSelector;
+      'link.social-link': LinkSocialLink;
+      'link.link': LinkLink;
+      'link.button': LinkButton;
       'layout.personaldata': LayoutPersonaldata;
       'layout.navigation': LayoutNavigation;
       'layout.meta': LayoutMeta;

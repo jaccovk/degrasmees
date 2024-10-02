@@ -12,14 +12,12 @@
   },
   "devDependencies": {},
   "dependencies": {
-    "@ef2/strapi-plugin-bold-title-editor": "^1.0.9",
     "@formatjs/intl-localematcher": "^0.4.2",
-    "@strapi/plugin-graphql": "^4.25.12",
-    "@strapi/plugin-i18n": "^4.25.12",
-    "@strapi/plugin-users-permissions": "^4.25.12",
-    "@strapi/provider-email-nodemailer": "^4.21.1",
-    "@strapi/strapi": "^4.25.12",
-    "@strapi/utils": "^4.25.12",
+    "@strapi/plugin-graphql": "^5.0.1",
+    "@strapi/plugin-users-permissions": "^5.0.1",
+    "@strapi/provider-email-nodemailer": "^5.0.1",
+    "@strapi/strapi": "^5.0.1",
+    "@strapi/utils": "^5.0.1",
     "@types/negotiator": "^0.6.2",
     "@types/qs": "^6.9.9",
     "better-sqlite3": "8.6.0",
@@ -31,11 +29,10 @@
     "react-dom": "^18.0.0",
     "react-icons": "^4.11.0",
     "react-markdown": "^9.0.1",
-    "react-router-dom": "^5.2.0",
+    "react-router-dom": "^6.0.0",
     "react-slideshow-image": "^4.3.0",
     "remark-gfm": "^4.0.0",
-    "strapi-plugin-sitemap": "^3.0.6",
-    "styled-components": "^5.2.1"
+    "styled-components": "^6.0.0"
   },
   "author": {
     "name": "A Strapi developer"

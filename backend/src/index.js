@@ -18,7 +18,7 @@ module.exports = {
    */
   async bootstrap({strapi}) {
     try {
-      const result = await strapi.entityService.findMany("sections.hero")
+      const result = await strapi.documents("sections.hero").findMany()
       console.log(result) // TODO
     } catch (error) {
       console.log(error);
