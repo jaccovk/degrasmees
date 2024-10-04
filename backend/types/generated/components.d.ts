@@ -320,20 +320,6 @@ export interface FormTelephonefield extends Struct.ComponentSchema {
   };
 }
 
-export interface FormFormSelector extends Struct.ComponentSchema {
-  collectionName: 'components_form_form_selectors';
-  info: {
-    displayName: 'Form Selector';
-    icon: 'file';
-  };
-  attributes: {
-    form: Schema.Attribute.Relation<
-      'oneToOne',
-      'api::form-builder.form-builder'
-    >;
-  };
-}
-
 export interface FormEmailfield extends Struct.ComponentSchema {
   collectionName: 'components_form_emailfields';
   info: {
@@ -416,7 +402,6 @@ declare module '@strapi/strapi' {
       'form.textfield': FormTextfield;
       'form.textareafield': FormTextareafield;
       'form.telephonefield': FormTelephonefield;
-      'form.form-selector': FormFormSelector;
       'form.emailfield': FormEmailfield;
       'elements.row': ElementsRow;
       'elements.phone': ElementsPhone;

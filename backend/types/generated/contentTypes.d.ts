@@ -548,6 +548,12 @@ export interface ApiFormBuilderFormBuilder extends Struct.CollectionTypeSchema {
           localized: true;
         };
       }>;
+    media: Schema.Attribute.Media<'images' | 'videos', true> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
     createdAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     publishedAt: Schema.Attribute.DateTime;

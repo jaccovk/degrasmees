@@ -3,6 +3,9 @@ import styles from "@/styles/sections/Grid.module.scss"
 import { GridProps } from "@/Interfaces/strapi-components/sections.interface"
 import MediaSlider from "@/components/global/MediaSlider"
 import classNames from "classnames"
+import NextMedia from "@/components/global/Media/NextMedia"
+import Slider from "@/components/global/Slider"
+import React from "react"
 
 // TODO: useSection hook
 // export default function Grid({ id, __component, lang }: UseSectionProps) {
@@ -31,7 +34,16 @@ export default function Grid(props: GridProps) {
                       </div>
                     </div>
                   )}
-                  {media && <MediaSlider media={media} />}
+                  <Slider settings={{ isPlaying: false, defaultSlidesWidth: "100%" }}>
+                    {media.map((media) => (
+                      <NextMedia // TODO ::: test this component
+                        key={media.documentId}
+                        media={media}
+                        width={1920}
+                        height={1080}
+                      ></NextMedia>
+                    ))}
+                  </Slider>
                 </div>
               ))}
           </div>

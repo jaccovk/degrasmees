@@ -2,17 +2,17 @@
 import styles from "@/styles/global/Footer.module.scss"
 import { LinkProps, SocialLinkProps } from "@/Interfaces/strapi-components/link.interface"
 import React from "react"
-import CustomLink from "@/components/links/CustomLink"
+import CustomLink from "@/components/link/CustomLink"
 import { useGlobalContext } from "@/Contexts/global.context"
 
 import NextMedia from "@/components/global/Media/NextMedia"
 import { Parts } from "@/Interfaces/api.interface"
-import PersonalData from "base/components/collections/global/PersonalData"
+import PersonalData from "base/components/layout/PersonalData"
 
 export default function Footer() {
   const { global } = useGlobalContext()
 
-  const logo = global.navigation?.logoFooter?.data
+  const logo = global.navigation?.logoFooter
   const links: LinkProps[] = global.navigation?.links || ([] as LinkProps[])
   const socialLinks: SocialLinkProps[] =
     global?.navigation?.socialLinks || ([] as SocialLinkProps[])
@@ -36,7 +36,7 @@ export default function Footer() {
             socialLinks.map((link: SocialLinkProps) => {
               return (
                 <a href={link.url} key={link.id}>
-                  <NextMedia media={link.icon.data} width={10} height={10} />
+                  <NextMedia media={link.icon} width={10} height={10} />
                 </a>
               )
             })}

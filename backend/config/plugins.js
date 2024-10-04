@@ -1,4 +1,4 @@
-module.exports = ({ env }) => ({
+module.exports = ({env}) => ({
   email: {
     config: {
       provider: 'nodemailer',
@@ -13,7 +13,12 @@ module.exports = ({ env }) => ({
       },
     },
   },
-  // sitemap: {
+  // 'form-conditional-logic': { TODO
+  //   enabled: true,
+  //   resolve: './src/plugins/form-conditional-logic'
+  // },
+
+  // sitemap: { TODO
   //   enabled: true,
   //   config: {
   //     cron: '0 0 0 * * *',

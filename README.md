@@ -22,6 +22,9 @@ Run `yarn start` to start the frontend and backend on the development server.
 ### general
 - Fix `Server Side Components`; each section should fetch its own data
 - Update .env in `clone-project.sh` with nodemailer
+- Change all `styles/sections` to its `component`
+- Create global layouts (like `grid`)
+
 
 ### content
 - Remove favicon from strapi?

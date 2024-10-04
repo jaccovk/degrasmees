@@ -2,7 +2,7 @@
 import React, { useState } from "react"
 import styles from "@/styles/global/Navbar.module.scss"
 import { LinkProps } from "@/Interfaces/strapi-components/link.interface"
-import CustomLink from "@/components/links/CustomLink"
+import CustomLink from "@/components/link/CustomLink"
 import { useGlobalContext } from "@/Contexts/global.context"
 import useDarkMode from "@/Hooks/useDarkMode.hook"
 import HamburgerMenu from "@/components/global/Navigation/HamburgerMenu"
@@ -25,7 +25,7 @@ export default function Navbar() {
   const { ThemeSwitch } = useDarkMode()
   const [mobileMenuIsShown, setMobileMenuIsShown] = useState(false)
 
-  const logo: Parts = global.navigation?.logo?.data || ({} as Parts)
+  const logo: Parts = global.navigation?.logo || ({} as Parts)
   const links: LinkProps[] = global.navigation?.links || ([] as LinkProps[])
 
   return (

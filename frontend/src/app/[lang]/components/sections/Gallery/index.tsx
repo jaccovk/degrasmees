@@ -16,9 +16,9 @@ export default function Gallery(props: GalleryProps) {
   const [screenWidth, setScreenWidth] = useState(0)
   useEffect(() => setScreenWidth(window.innerWidth), [])
 
-  if (!propertyExists(media?.data, "Gallery", "media") || media.data.length === 0) return null
+  if (!propertyExists(media, "Gallery", "media") || media.length === 0) return null
 
-  const [firstMedia, ...restMedia] = media.data // pick the first media item and spread the rest
+  const [firstMedia, ...restMedia] = media // pick the first media item and spread the rest
 
   return (
     <div className={styles.block} id={title}>
