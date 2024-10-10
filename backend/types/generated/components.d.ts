@@ -275,6 +275,7 @@ export interface FormUploadfield extends Struct.ComponentSchema {
     help: Schema.Attribute.String;
     required: Schema.Attribute.Boolean;
     placeholder: Schema.Attribute.Media<'images'>;
+    name: Schema.Attribute.String & Schema.Attribute.Required;
   };
 }
 
@@ -289,6 +290,7 @@ export interface FormTextfield extends Struct.ComponentSchema {
     placeholder: Schema.Attribute.String;
     help: Schema.Attribute.String;
     required: Schema.Attribute.Boolean;
+    name: Schema.Attribute.String & Schema.Attribute.Required;
   };
 }
 
@@ -303,6 +305,7 @@ export interface FormTextareafield extends Struct.ComponentSchema {
     placeholder: Schema.Attribute.String;
     help: Schema.Attribute.String;
     required: Schema.Attribute.Boolean;
+    name: Schema.Attribute.String & Schema.Attribute.Required;
   };
 }
 
@@ -311,12 +314,14 @@ export interface FormTelephonefield extends Struct.ComponentSchema {
   info: {
     displayName: 'Telephonefield';
     icon: 'phone';
+    description: '';
   };
   attributes: {
     label: Schema.Attribute.String;
     placeholder: Schema.Attribute.String;
     help: Schema.Attribute.String;
     required: Schema.Attribute.Boolean;
+    name: Schema.Attribute.String & Schema.Attribute.Required;
   };
 }
 
@@ -325,12 +330,14 @@ export interface FormEmailfield extends Struct.ComponentSchema {
   info: {
     displayName: 'Emailfield';
     icon: 'user';
+    description: '';
   };
   attributes: {
     label: Schema.Attribute.String;
     placeholder: Schema.Attribute.String;
-    required: Schema.Attribute.Boolean;
     help: Schema.Attribute.String;
+    required: Schema.Attribute.Boolean;
+    name: Schema.Attribute.String & Schema.Attribute.Required;
   };
 }
 

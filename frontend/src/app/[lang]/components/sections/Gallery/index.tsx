@@ -1,5 +1,5 @@
 "use client"
-import styles from "@/styles/sections/Gallery.module.scss"
+import styles from "@/components/sections/Gallery/Gallery.module.scss"
 import { GalleryProps } from "@/Interfaces/strapi-components/sections.interface"
 import propertyExists from "@/utils/property-exists"
 import NextMedia from "@/components/global/Media/NextMedia"

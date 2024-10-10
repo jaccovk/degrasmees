@@ -17,6 +17,11 @@
     },
     "required": {
       "type": "boolean"
+    },
+    "name": {
+      "type": "string",
+      "required": true,
+      "regex": "^[a-zA-Z_-]+$"
     }
   }
 }

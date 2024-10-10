@@ -21,14 +21,9 @@ function getLocale(request: NextRequest): string | undefined {
 export function middleware(request: NextRequest) {
   const pathname = request.nextUrl.pathname
 
-  // // `/_next/` and `/api/` are ignored by the watcher, but we need to ignore files in `public` manually.
-  // // If you have one
   if (
-    [
-      "/manifest.json",
-      "/favicon.ico",
-      // Your other files in `public`
-    ].includes(pathname)
+    ["/manifest.json", "/favicon.ico" /*...add more...*/].includes(pathname) ||
+    pathname.startsWith("/api/")
   )
     return
 

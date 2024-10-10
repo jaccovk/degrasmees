@@ -1,5 +1,5 @@
 "use client"
-import styles from "@/styles/sections/Grid.module.scss"
+import styles from "@/components/sections/Grid/Grid.module.scss"
 import { GridProps } from "@/Interfaces/strapi-components/sections.interface"
 import MediaSlider from "@/components/global/MediaSlider"
 import classNames from "classnames"

@@ -757,6 +757,7 @@ export interface ApiSubmissionSubmission extends Struct.CollectionTypeSchema {
     singularName: 'submission';
     pluralName: 'submissions';
     displayName: 'Submission';
+    description: '';
   };
   options: {
     draftAndPublish: false;
@@ -764,6 +765,7 @@ export interface ApiSubmissionSubmission extends Struct.CollectionTypeSchema {
   attributes: {
     name: Schema.Attribute.String;
     email: Schema.Attribute.String;
+    other: Schema.Attribute.JSON;
     createdAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     publishedAt: Schema.Attribute.DateTime;

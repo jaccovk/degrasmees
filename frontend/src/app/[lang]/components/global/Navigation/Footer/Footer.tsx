@@ -1,5 +1,5 @@
 "use client"
-import styles from "@/styles/global/Footer.module.scss"
+import styles from "@/components/global/Navigation/Footer/Footer.module.scss"
 import { LinkProps, SocialLinkProps } from "@/Interfaces/strapi-components/link.interface"
 import React from "react"
 import CustomLink from "@/components/link/CustomLink"
@@ -7,7 +7,7 @@ import { useGlobalContext } from "@/Contexts/global.context"
 
 import NextMedia from "@/components/global/Media/NextMedia"
 import { Parts } from "@/Interfaces/api.interface"
-import PersonalData from "base/components/layout/PersonalData"
+import PersonalData from "@/components/layout/PersonalData"
 
 export default function Footer() {
   const { global } = useGlobalContext()

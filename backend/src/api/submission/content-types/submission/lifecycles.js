@@ -1,12 +1,31 @@
+const getGlobal = require('../../../../../config/functions/getGlobal')
+
 module.exports = {
   async afterUpdate(event) {
-    console.log("event >>>>", event)
+    /**
+     * Check if the environment is production
+     * @type {boolean}
+     */
+    const isProduction = process.env.NODE_ENV === 'production'
+    if (!isProduction) {
+        console.log("Not in production environment, returning event...")
+        console.log("event >>>>", event)
+        return
+    }
+
+    /**
+     * Check if the email from is set
+     * @type {string}
+     */
     const emailFrom = process.env.MAIL_DEFAULT_FROM
     if (!emailFrom) {
       console.error("MAIL_DEFAULT_FROM is not set")
       return
     }
 
+    /**
+     * Try to email the user
+     */
     try {
       const { email, name } = event.result
       if (!email) {
