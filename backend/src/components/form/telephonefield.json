@@ -10,6 +10,11 @@
     "label": {
       "type": "string"
     },
+    "name": {
+      "type": "string",
+      "required": true,
+      "regex": "^[a-zA-Z_-]+$"
+    },
     "placeholder": {
       "type": "string"
     },
@@ -17,12 +22,19 @@
       "type": "string"
     },
     "required": {
-      "type": "boolean"
+      "type": "boolean",
+      "default": false
     },
-    "name": {
+    "error": {
+      "type": "string"
+    },
+    "disabled": {
+      "type": "boolean",
+      "default": false
+    },
+    "validator": {
       "type": "string",
-      "required": true,
-      "regex": "^[a-zA-Z_-]+$"
+      "default": "/^((\\+|00)31(\\s|-)?(\\(0\\)[1-9]{1}|[1-9]{1})\\d{8})$/"
     }
   }
 }

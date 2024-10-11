@@ -9,6 +9,11 @@
     "label": {
       "type": "string"
     },
+    "name": {
+      "type": "string",
+      "required": true,
+      "regex": "^[a-zA-Z_-]+$"
+    },
     "placeholder": {
       "type": "string"
     },
@@ -16,12 +21,18 @@
       "type": "string"
     },
     "required": {
-      "type": "boolean"
+      "type": "boolean",
+      "default": false
     },
-    "name": {
-      "type": "string",
-      "required": true,
-      "regex": "^[a-zA-Z_-]+$"
+    "error": {
+      "type": "string"
+    },
+    "disabled": {
+      "type": "boolean",
+      "default": false
+    },
+    "validator": {
+      "type": "string"
     }
   }
 }

@@ -302,10 +302,10 @@ export interface FormTextareafield extends Struct.ComponentSchema {
   };
   attributes: {
     label: Schema.Attribute.String;
+    name: Schema.Attribute.String & Schema.Attribute.Required;
     placeholder: Schema.Attribute.String;
     help: Schema.Attribute.String;
-    required: Schema.Attribute.Boolean;
-    name: Schema.Attribute.String & Schema.Attribute.Required;
+    required: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
   };
 }
 

@@ -9,19 +9,34 @@
     "label": {
       "type": "string"
     },
+    "name": {
+      "type": "string",
+      "required": true,
+      "regex": "^[a-zA-Z_-]+$"
+    },
     "placeholder": {
       "type": "string"
     },
     "help": {
       "type": "string"
     },
-    "required": {
-      "type": "boolean"
+    "rows": {
+      "type": "number",
+      "default": 3
     },
-    "name": {
-      "type": "string",
-      "required": true,
-      "regex": "^[a-zA-Z_-]+$"
+    "required": {
+      "type": "boolean",
+      "default": false
+    },
+    "error": {
+      "type": "string"
+    },
+    "disabled": {
+      "type": "boolean",
+      "default": false
+    },
+    "validator": {
+      "type": "string"
     }
   }
 }

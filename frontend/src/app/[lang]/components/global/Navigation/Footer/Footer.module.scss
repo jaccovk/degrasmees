@@ -28,7 +28,7 @@
 
 .practical_info {
   @include flex(space-between);
-  padding-bottom: $spacing-base;
+  padding-bottom: $spacing;
 }
 
 .social_links {

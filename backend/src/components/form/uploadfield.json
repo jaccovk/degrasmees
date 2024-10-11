@@ -10,11 +10,13 @@
     "label": {
       "type": "string"
     },
+    "name": {
+      "type": "string",
+      "required": true,
+      "regex": "^[a-zA-Z_-]+$"
+    },
     "help": {
       "type": "string"
-    },
-    "required": {
-      "type": "boolean"
     },
     "placeholder": {
       "allowedTypes": [
@@ -23,10 +25,19 @@
       "type": "media",
       "multiple": false
     },
-    "name": {
-      "type": "string",
-      "required": true,
-      "regex": "^[a-zA-Z_-]+$"
+    "required": {
+      "type": "boolean",
+      "default": false
+    },
+    "error": {
+      "type": "string"
+    },
+    "disabled": {
+      "type": "boolean",
+      "default": false
+    },
+    "validator": {
+      "type": "string"
     }
   }
 }
