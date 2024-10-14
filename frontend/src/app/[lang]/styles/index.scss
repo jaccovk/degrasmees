@@ -35,15 +35,15 @@ main {
 
 // Theme +=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=
 .light {
-  background-color: $backgroundSecondary;
-  color: $textPrimary;
+  background-color: $background-secondary;
+  color: $text-primary;
 
   span {
-    color: $textPrimary;
+    color: $text-primary;
   }
 
   .navigation-container, .mobile-navigation {
-    background-color: $backgroundSecondary;
+    background-color: $background-secondary;
   }
 
   .storyline-float-stroke {
@@ -60,12 +60,12 @@ main {
 }
 
 .dark {
-  background-color: $backgroundPrimary;
-  color: $textSecondary;
+  background-color: $background-primary;
+  color: $text-secondary;
 
   .navigation-container, .mobile-navigation, span, main {
-    background-color: $backgroundPrimary;
-    color: $textSecondary;
+    background-color: $background-primary;
+    color: $text-secondary;
   }
 
   .storyline-float-stroke {
