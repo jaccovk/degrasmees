@@ -35,6 +35,15 @@
     "validator": {
       "type": "string",
       "default": "/^((\\+|00)31(\\s|-)?(\\(0\\)[1-9]{1}|[1-9]{1})\\d{8})$/"
+    },
+    "size": {
+      "type": "enumeration",
+      "enum": [
+        "half",
+        "full"
+      ],
+      "default": "full",
+      "required": true
     }
   }
 }
