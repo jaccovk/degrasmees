@@ -1,8 +1,8 @@
 "use server"
-import { sectionRenderer } from "@/utils/section-renderer"
+import { sectionRenderer } from "@/utils/core/section-renderer"
 import React from "react"
 import Script from "next/script"
-import getData from "@/utils/core/getData"
+import getData from "@/utils/models/get-data"
 import App from "@/components/global/App"
 
 interface HomeProps {

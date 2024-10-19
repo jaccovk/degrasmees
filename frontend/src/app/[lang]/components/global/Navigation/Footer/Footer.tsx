@@ -12,8 +12,8 @@ import PersonalData from "@/components/layout/PersonalData"
 export default function Footer() {
   const { global } = useGlobalContext()
 
-  const logo = global.navigation?.logoFooter
-  const links: LinkProps[] = global.navigation?.links || ([] as LinkProps[])
+  const logo = global?.navigation?.logoFooter
+  const links: LinkProps[] = global?.navigation?.links || ([] as LinkProps[])
   const socialLinks: SocialLinkProps[] =
     global?.navigation?.socialLinks || ([] as SocialLinkProps[])
 

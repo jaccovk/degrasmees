@@ -16,7 +16,7 @@
     "classnames": "^2.3.2",
     "keen-slider": "^6.8.6",
     "negotiator": "^0.6.3",
-    "next": "14.2.11",
+    "next": "^14.2.15",
     "next-seo": "^6.4.0",
     "npx": "^3.0.0",
     "persistent-cache": "^1.1.2",

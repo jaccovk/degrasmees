@@ -25,8 +25,8 @@ export default function Navbar() {
   const { ThemeSwitch } = useDarkMode()
   const [mobileMenuIsShown, setMobileMenuIsShown] = useState(false)
 
-  const logo: Parts = global.navigation?.logo || ({} as Parts)
-  const links: LinkProps[] = global.navigation?.links || ([] as LinkProps[])
+  const logo: Parts = global?.navigation?.logo || ({} as Parts)
+  const links: LinkProps[] = global?.navigation?.links || ([] as LinkProps[])
 
   return (
     <div className="navigation-container">

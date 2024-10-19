@@ -1,7 +1,7 @@
 "use client"
 
 import { SWRConfig } from "swr"
-import { fetchAPI } from "@/utils/fetch-api"
+import { fetchAPI } from "@/utils/core/fetch-api"
 
 export default function Config(props: any) {
   const { children } = props

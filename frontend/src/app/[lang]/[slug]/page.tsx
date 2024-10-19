@@ -1,9 +1,9 @@
 "use server"
-import { sectionRenderer } from "@/utils/section-renderer"
+import { sectionRenderer } from "@/utils/core/section-renderer"
 import React from "react"
 import { NextSeo } from "next-seo"
 import App from "@/components/global/App"
-import getData from "@/utils/core/getData"
+import getData from "@/utils/models/get-data"
 import Script from "next/script"
 
 interface Props {
