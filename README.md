@@ -6,10 +6,9 @@ Welcome to the README of [degrasmees.nl](https://degrasmees.nl)!
 Run `yarn start` to start the frontend and backend on the development server.
 
 ### Good to know [Production]
-- Run `bash ./devops/hosting/production/setup-nextjs.sh` to setup the frontend.  
-- Run `bash ./devops/hosting/production/setup-strapi.sh` to setup the backend.
-- Run `bash update.sh` to update the frontend and backend.
-- Run `bash clone-project.sh` to clone the project.
+- run `setup-hosting` to setup the frontend (`-f frontend`) or backend (`-f backend`)
+- Run `update` to update the frontend and backend.
+- Run `clone-project` to clone the project.
 
 ### Good to know [Development]
 - Run `bash push-files.sh` to push the _frontend/public/uploads_ folder to the server.
@@ -20,10 +19,11 @@ Run `yarn start` to start the frontend and backend on the development server.
 
 ## To Do's 
 ### general
-- Fix `Server Side Components`; each section should fetch its own data
-- Update .env in `clone-project.sh` with nodemailer
-- Change all `styles/sections` to its `component`
-- Create global layouts (like `grid`)
+- [ ] Fix `Server Side Components`; each section should fetch its own data
+- [ ] Update .env in `clone-project.sh` with nodemailer
+- [ ] Change all `styles/sections` to its `component`
+- [ ] Create global layouts (like `grid`)
+
 
 
 ### content
