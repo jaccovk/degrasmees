@@ -60,5 +60,13 @@
 
   .width-half {
     flex: 0 0 calc(50% - (calc(#{$spacing-md} / 2)));
+
+    @include betweenDevice {
+      flex: 0 0 100%;
+    }
+
+    @include smallDevice($breakpoint-sm) {
+      flex: 0 0 100%;
+    }
   }
 }

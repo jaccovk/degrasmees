@@ -26,6 +26,7 @@ export default function Gallery(props: GalleryProps) {
         <NextMedia media={firstMedia} />
       </div>
       <Slider settings={{ defaultSlidesWidth: screenWidth < 768 ? "45vw" : "20vw" }}>
+        {/*  TODO ::: replace defaultSlidesWidth etc. to the stylesheet (--default-styles-width) to remove Javascript `screenwidth < ...` */}
         {restMedia.map((item, index) => (
           <div key={index} className={styles.sliderItem}>
             <NextMedia media={item} />
