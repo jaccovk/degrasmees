@@ -7,8 +7,7 @@
     "develop": "strapi develop",
     "start": "strapi start",
     "build": "strapi build",
-    "strapi": "strapi",
-    "sitemap": "strapi-sitemap"
+    "strapi": "strapi"
   },
   "devDependencies": {},
   "dependencies": {
@@ -22,7 +21,6 @@
     "@types/qs": "^6.9.9",
     "better-sqlite3": "8.6.0",
     "classnames": "^2.3.2",
-    "form-conditional-logic": "link:.yalc/form-conditional-logic",
     "negotiator": "^0.6.3",
     "pg": "^8.11.3",
     "qs": "^6.11.2",
@@ -36,7 +34,8 @@
     "styled-components": "^6.0.0"
   },
   "author": {
-    "name": "A Strapi developer"
+    "name": "Jacco van Kooten",
+    "email": "jaccovankooten@hotmail.nl"
   },
   "strapi": {
     "uuid": "e80200ad-bceb-4b91-85ad-94eda67d12f0"

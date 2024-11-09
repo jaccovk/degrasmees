@@ -1,0 +1,27 @@
+@import '@/styles/global';
+
+.block {
+  width: 100%;
+  border: none;
+  padding: $spacing-sm $spacing-md;
+  font-weight: $font-weight-medium;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+
+  &:hover {
+    background-color: $secondary;
+  }
+}
+
+.primary {
+  background-color: $primary;
+  border-color: $primary;
+  color: $text-secondary;
+}
+
+.secondary {
+  background-color: $secondary;
+  border-color: $primary;
+  color: $text-secondary;
+}

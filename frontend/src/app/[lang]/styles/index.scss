@@ -35,6 +35,11 @@ main {
 
 // Theme +=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=
 .light {
+  .current-background {
+    background-color: $background-secondary;
+    color: $text-primary;
+  }
+
   background-color: $background-secondary;
   color: $text-primary;
 
@@ -54,12 +59,22 @@ main {
     }
   }
 
+  input, textarea {
+    border: none;
+    border-bottom: 1px solid $text-primary;
+  }
+
   //.storyline-float-year {
   //  background-color: white;
   //}
 }
 
 .dark {
+  .current-background {
+    background-color: $background-primary;
+    color: $text-secondary;
+  }
+
   background-color: $background-primary;
   color: $text-secondary;
 
@@ -74,6 +89,13 @@ main {
     &:before {
       background-color: $primary;
     }
+  }
+
+  input, textarea {
+    background-color: $background-primary;
+    color: $text-secondary;
+    border: none;
+    border-bottom: 1px solid $text-secondary;
   }
 
   //.storyline-float-year {
@@ -111,6 +133,13 @@ h2 {
 h3 {
   //font-style: italic;
   font-size: $font-size-2xl;
+  font-weight: $font-weight-bold;
+  color: $secondary;
+  margin: 0;
+}
+
+h4 {
+  font-size: $font-size-lg;
   font-weight: $font-weight-bold;
   color: $secondary;
   margin: 0;

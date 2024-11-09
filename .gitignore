@@ -4,6 +4,7 @@ node_modules
 
 # base folder
 frontend/src/base
+backend/backend-base
 
 yarn.lock
 
