@@ -6,13 +6,17 @@ import React from "react"
 
 interface RootLayoutProps {
   children: React.ReactNode
-  params: {
+  params: Promise<{
     slug: string
     lang: string
-  }
+  }>
 }
 
-export default async function RootLayout({ children, params }: RootLayoutProps) {
+export default async function RootLayout(props: RootLayoutProps) {
+  const params = await props.params
+
+  const { children } = props
+
   return (
     <html lang={params.lang}>
       <body>

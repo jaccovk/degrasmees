@@ -7,13 +7,14 @@ import getData from "@/utils/models/get-data"
 import Script from "next/script"
 
 interface Props {
-  params: {
+  params: Promise<{
     slug: string
     lang: string
-  }
+  }>
 }
 
-export default async function Page({ params }: Props) {
+export default async function Page(props: Props) {
+  const params = await props.params
   const { globalData, themeData, pageData } = await getData({
     slug: params.slug,
     lang: params.lang,

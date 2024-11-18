@@ -6,12 +6,13 @@ import getData from "@/utils/models/get-data"
 import App from "@/components/global/App"
 
 interface HomeProps {
-  params: {
+  params: Promise<{
     lang: string
-  }
+  }>
 }
 
-export default async function Home({ params }: HomeProps) {
+export default async function Home(props: HomeProps) {
+  const params = await props.params
   const { globalData, themeData, pageData } = await getData({
     slug: "home",
     lang: params.lang,
