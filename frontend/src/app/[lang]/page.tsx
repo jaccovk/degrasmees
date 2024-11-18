@@ -26,7 +26,7 @@ export default async function Home({ params }: HomeProps) {
   }
 
   return (
-    <App params={{ ...params, globalData, themeData, pageData }}>
+    <App params={{ lang: params.lang, globalData, themeData, pageData }}>
       <div className="sections">
         {meta && (
           <Script id="meta-schema" type="application/ld+json">

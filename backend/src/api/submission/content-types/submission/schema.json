@@ -20,6 +20,9 @@
     },
     "other": {
       "type": "json"
+    },
+    "reCaptchaVerify": {
+      "type": "json"
     }
   }
 }

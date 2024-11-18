@@ -14,10 +14,38 @@
       "maxLength": 7,
       "minLength": 4
     },
+    "primaryHover": {
+      "type": "string",
+      "required": true,
+      "default": "#ccc",
+      "maxLength": 7,
+      "minLength": 4
+    },
     "secondary": {
       "type": "string",
       "default": "#ccc",
       "required": true,
+      "maxLength": 7,
+      "minLength": 4
+    },
+    "secondaryHover": {
+      "type": "string",
+      "required": true,
+      "default": "#ccc",
+      "maxLength": 7,
+      "minLength": 4
+    },
+    "tertiary": {
+      "type": "string",
+      "required": true,
+      "maxLength": 7,
+      "minLength": 4,
+      "default": "#ccc"
+    },
+    "tertiaryHover": {
+      "type": "string",
+      "required": true,
+      "default": "#ccc",
       "maxLength": 7,
       "minLength": 4
     },
@@ -48,13 +76,6 @@
       "default": "#fff",
       "maxLength": 7,
       "minLength": 4
-    },
-    "tertiary": {
-      "type": "string",
-      "required": true,
-      "maxLength": 7,
-      "minLength": 4,
-      "default": "#ccc"
     }
   }
 }

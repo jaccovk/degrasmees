@@ -8,20 +8,24 @@
   cursor: pointer;
   text-align: center;
   text-decoration: none;
-
-  &:hover {
-    background-color: $secondary;
-  }
 }
 
 .primary {
   background-color: $primary;
   border-color: $primary;
   color: $text-secondary;
+
+  &:hover {
+    background-color: $primary-hover;
+  }
 }
 
 .secondary {
   background-color: $secondary;
   border-color: $primary;
   color: $text-secondary;
+
+  &:hover {
+    background-color: $secondary-hover;
+  }
 }
