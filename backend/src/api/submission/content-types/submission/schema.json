@@ -23,6 +23,11 @@
     },
     "reCaptchaVerify": {
       "type": "json"
+    },
+    "mailTemplate": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::mail-template.mail-template"
     }
   }
 }

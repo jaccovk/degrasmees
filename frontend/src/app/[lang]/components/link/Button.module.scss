@@ -8,6 +8,15 @@
   cursor: pointer;
   text-align: center;
   text-decoration: none;
+
+  &:disabled {
+    cursor: not-allowed;
+    background-color: $gray;
+
+    :hover {
+      background-color: $gray;
+    }
+  }
 }
 
 .primary {

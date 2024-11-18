@@ -32,14 +32,6 @@
       },
       "type": "richtext"
     },
-    "email": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "type": "email"
-    },
     "fields": {
       "pluginOptions": {
         "i18n": {
@@ -69,17 +61,23 @@
       "required": true
     },
     "media": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
       "allowedTypes": [
         "images",
         "videos"
       ],
-      "type": "media",
-      "multiple": true,
       "pluginOptions": {
         "i18n": {
           "localized": false
         }
       }
+    },
+    "mailTemplate": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::mail-template.mail-template"
     }
   }
 }
