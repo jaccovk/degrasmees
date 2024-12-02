@@ -1,7 +1,6 @@
 # degrasmees
 Welcome to the README of [degrasmees.nl](https://degrasmees.nl)!
 
-
 ## Getting started
 Run `yarn start` to start the frontend and backend on the development server.
 
@@ -14,6 +13,9 @@ Run `yarn start` to start the frontend and backend on the development server.
 - Run `bash push-files.sh` to push the _frontend/public/uploads_ folder to the server.
 
 ## Must Do's
+- Test Mail
+- Form disappear
+- Production database
 - Add `plugin` to Strapi Form Builder that adds to the fields: (if A than B)
 - `"@ef2/strapi-plugin-bold-title-editor": "^1.0.9"` is not working since Strapi v5; search for alternative
 
