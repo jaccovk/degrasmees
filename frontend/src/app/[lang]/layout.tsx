@@ -2,8 +2,7 @@
 import "@/styles/index.scss"
 import { i18n } from "../../../i18n-config"
 import React from "react"
-import { Toaster } from "react-hot-toast"
-// import { Inter } from "next/dist/compiled/@next/font/dist/google"
+import { CustomToaster } from "@/components/Toaster/CustomToaster"
 
 interface RootLayoutProps {
   children: React.ReactNode
@@ -15,15 +14,13 @@ interface RootLayoutProps {
 
 export default async function RootLayout(props: RootLayoutProps) {
   const params = await props.params
-  // const inter = Inter({ subsets: ["latin"] })
 
   const { children } = props
 
   return (
     <html lang={params.lang}>
-      {/*<body className={inter.className}>*/}
       <body>
-        <Toaster position="bottom-right" toastOptions={{ duration: 5000 }} />
+        <CustomToaster />
         {children}
       </body>
     </html>

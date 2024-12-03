@@ -13,14 +13,17 @@ Run `yarn start` to start the frontend and backend on the development server.
 - Run `bash push-files.sh` to push the _frontend/public/uploads_ folder to the server.
 
 ## Must Do's
-- Test Mail
-- Form disappear
-- Production database
-- Add `plugin` to Strapi Form Builder that adds to the fields: (if A than B)
+- [ ] Fix Mail
+- [ ] Fix Revalidate hook
+- [ ] Production server
+- [ ] Modal voor afbeeldingen
 - `"@ef2/strapi-plugin-bold-title-editor": "^1.0.9"` is not working since Strapi v5; search for alternative
+  - see mail
 
 ## To Do's 
 ### general
+- [ ] Fix `pagespeed` (recaptcha to another page?)
+- [ ] Add `plugin` to Strapi Form Builder that adds to the fields: (if A than B)
 - [ ] Fix `Server Side Components`; each section should fetch its own data
 - [ ] Update .env in `clone-project.sh` with nodemailer
 - [ ] Change all `styles/sections` to its `component`
