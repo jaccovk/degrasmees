@@ -1,0 +1,65 @@
+@import '@/styles/global';
+
+.stackOrGrid {
+  @include stack;
+  ::selection {
+    color: unset;
+    background: none;
+  }
+}
+
+.arrows {
+  @include flex(space-between, row);
+  height: 100%;
+  width: 100%;
+  z-index: 1;
+}
+
+.arrow {
+  pointer-events: all;
+  @include transition(0.3s);
+  display: flex;
+  padding: 0.75rem;
+  border-radius: 50%;
+  border: 1px solid $primary; // todo
+  background: $primary; // todo
+}
+
+@include largeDevice() {
+  .arrow {
+    &:first-of-type {
+      margin-left: 25px;
+    }
+    &:last-of-type {
+      margin-right: 25px;
+    }
+    &:hover {
+      cursor: pointer;
+
+      &:first-child {
+        transform: translateX(-4px);
+      }
+
+      &:last-child {
+        transform: translateX(4px);
+      }
+    }
+  }
+}
+
+@include smallDevice() {
+  .stackOrGrid {
+    @include flex;
+    flex-direction: column;
+  }
+
+  .arrows {
+    padding-top: 1rem;
+    justify-content: center;
+    gap: 1rem;
+  }
+
+  .arrow {
+    padding: 0.25rem;
+  }
+}
