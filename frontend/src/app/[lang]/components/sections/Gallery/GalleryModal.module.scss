@@ -1,10 +1,14 @@
 @import '@/styles/global';
 
-.stackOrGrid {
+.stack {
   @include stack;
   ::selection {
     color: unset;
     background: none;
+  }
+
+  > * {
+    height: 75vh; // todo ======= todo =======
   }
 }
 
@@ -21,45 +25,40 @@
   display: flex;
   padding: 0.75rem;
   border-radius: 50%;
-  border: 1px solid $primary; // todo
-  background: $primary; // todo
+  border: 1px solid $primary; // todo ======= todo =======
+  background: $primary; // todo ======= todo =======
 }
 
 @include largeDevice() {
   .arrow {
     &:first-of-type {
-      margin-left: 25px;
+      margin-left: $spacing-md;
     }
     &:last-of-type {
-      margin-right: 25px;
+      margin-right: $spacing-md;
     }
     &:hover {
       cursor: pointer;
 
       &:first-child {
-        transform: translateX(-4px);
+        transform: translateX(calc(-1 * $spacing-2xs));
       }
 
       &:last-child {
-        transform: translateX(4px);
+        transform: translateX($spacing-2xs);
       }
     }
   }
 }
 
-@include smallDevice() {
-  .stackOrGrid {
-    @include flex;
-    flex-direction: column;
-  }
-
-  .arrows {
-    padding-top: 1rem;
-    justify-content: center;
-    gap: 1rem;
-  }
-
+@include smallDevice {
   .arrow {
-    padding: 0.25rem;
+    &:first-of-type {
+      margin-left: $spacing;
+    }
+
+    &:last-of-type {
+      margin-right: $spacing;
+    }
   }
 }

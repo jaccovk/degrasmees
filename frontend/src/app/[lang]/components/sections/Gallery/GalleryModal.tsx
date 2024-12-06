@@ -14,7 +14,7 @@ interface Props {
 export const GalleryModal = ({ selectedItem, handleClose, handleArrowClick }: Props) => {
   return (
     <Modal handleClose={handleClose}>
-      <div className={style.stackOrGrid}>
+      <div className={style.stack}>
         <NextMedia media={selectedItem}></NextMedia>
 
         <div className={style.arrows}>
