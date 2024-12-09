@@ -38,9 +38,7 @@ export default async function Page(props: Props) {
           </Script>
         )}
         <NextSeo title={metaText.name} description={metaText.description} />
-        {sections?.map((section: any, index: number) =>
-          sectionRenderer(section, params.lang, index)
-        )}
+        {sections?.map((section: any, index: number) => sectionRenderer(section, params.lang, index))}
       </div>
     </App>
   )

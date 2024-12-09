@@ -14,8 +14,7 @@ export default function Footer() {
 
   const logo = global?.navigation?.logoFooter
   const links: LinkProps[] = global?.navigation?.links || ([] as LinkProps[])
-  const socialLinks: SocialLinkProps[] =
-    global?.navigation?.socialLinks || ([] as SocialLinkProps[])
+  const socialLinks: SocialLinkProps[] = global?.navigation?.socialLinks || ([] as SocialLinkProps[])
 
   return (
     <footer className={styles.block}>

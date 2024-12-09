@@ -34,9 +34,7 @@ export default async function Home(props: HomeProps) {
             {JSON.stringify(metaText)}
           </Script>
         )}
-        {sections?.map((section: any, index: number) =>
-          sectionRenderer(section, params.lang, index)
-        )}
+        {sections?.map((section: any, index: number) => sectionRenderer(section, params.lang, index))}
       </div>
     </App>
   )

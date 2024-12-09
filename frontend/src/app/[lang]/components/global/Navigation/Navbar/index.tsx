@@ -45,11 +45,7 @@ export default function Navbar() {
           </div>
         </div>
       </nav>
-      <MobileNavigationMenu
-        links={links}
-        isOpen={mobileMenuIsShown}
-        closeSelf={() => setMobileMenuIsShown(false)}
-      />
+      <MobileNavigationMenu links={links} isOpen={mobileMenuIsShown} closeSelf={() => setMobileMenuIsShown(false)} />
     </div>
   )
 }
