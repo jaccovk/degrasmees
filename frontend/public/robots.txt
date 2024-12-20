@@ -1,2 +1,2 @@
 # robots
-Sitemap: https://strapi.jaapvankooten.nl/api/sitemap/index.xml
+Sitemap: https://strapi.degrasmees.nl/api/sitemap/index.xml
