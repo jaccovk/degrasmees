@@ -15,6 +15,7 @@ Run `yarn start` to start the frontend and backend on the development server.
 ## Must Do's
 - [ ] Fix Mail
 - [x] Fix Revalidate hook
+- [ ] ! Font: "Helvetica"
 - [ ] Robots.txt and sitemap
 - [ ] Production server
 - [ ] Add Mail result to Message collection
