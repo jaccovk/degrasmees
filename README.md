@@ -13,8 +13,10 @@ Run `yarn start` to start the frontend and backend on the development server.
 - Run `bash push-files.sh` to push the _frontend/public/uploads_ folder to the server.
 
 ## Must Do's
-- [x] Fix Mail
+- [ ] Fix Mail
 - [x] Fix Revalidate hook
+- [ ] ! Font: "Helvetica"
+- [ ] Robots.txt and sitemap
 - [ ] Production server
 - [ ] Add Mail result to Message collection
 - [ ] Modal voor afbeeldingen restylen & swipen
