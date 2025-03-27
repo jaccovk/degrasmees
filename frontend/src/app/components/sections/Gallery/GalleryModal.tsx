@@ -1,7 +1,7 @@
 import { Modal } from "@/components/Modal"
 import React from "react"
 import { Parts } from "@/Interfaces/api.interface"
-import style from "@/components/sections/Gallery/GalleryModal.module.scss"
+import style from "./GalleryModal.module.scss"
 import NextMedia from "@/components/global/Media/NextMedia"
 import { ArrowLeft } from "@/components/svg/ArrowLeft"
 import { ArrowRight } from "@/components/svg/ArrowRight"

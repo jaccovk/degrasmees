@@ -1,12 +1,12 @@
 "use client"
-import styles from "@/components/sections/Gallery/Gallery.module.scss"
+import styles from "./Gallery.module.scss"
 import { GalleryProps } from "@/Interfaces/strapi-components/sections.interface"
 import propertyExists from "@/utils/property-exists"
 import NextMedia from "@/components/global/Media/NextMedia"
 import Slider from "@/components/global/Slider"
 import React, { useEffect, useState } from "react"
 import { Modal } from "@/components/Modal"
-import { GalleryModal } from "@/components/sections/Gallery/GalleryModal"
+import { GalleryModal } from "./GalleryModal"
 import { Parts } from "@/Interfaces/api.interface"
 
 // TODO: useSection hook

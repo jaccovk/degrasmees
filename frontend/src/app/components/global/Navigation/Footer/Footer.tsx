@@ -1,5 +1,5 @@
 "use client"
-import styles from "@/components/global/Navigation/Footer/Footer.module.scss"
+import styles from "./Footer.module.scss"
 import { LinkProps, SocialLinkProps } from "@/Interfaces/strapi-components/link.interface"
 import React from "react"
 import CustomLink from "@/components/link/CustomLink"

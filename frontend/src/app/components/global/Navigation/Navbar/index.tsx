@@ -1,6 +1,6 @@
 "use client"
 import React, { useState } from "react"
-import styles from "@/components/global/Navigation/Navbar/Navbar.module.scss"
+import styles from "./Navbar.module.scss"
 import { LinkProps } from "@/Interfaces/strapi-components/link.interface"
 import CustomLink from "@/components/link/CustomLink"
 import { useGlobalContext } from "@/Contexts/global.context"

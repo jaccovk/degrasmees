@@ -1,6 +1,6 @@
 "use server"
-import "@/styles/index.scss"
-import { i18n } from "../../../i18n-config"
+import "./styles/index.scss"
+import { i18n } from "../../i18n-config"
 import React from "react"
 import { CustomToaster } from "@/components/Toaster/CustomToaster"
 
