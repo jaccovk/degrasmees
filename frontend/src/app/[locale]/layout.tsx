@@ -1,6 +1,6 @@
 "use server"
 
-import "@/[locale]/styles/index.scss"
+import "@/styles/index.scss"
 import React from "react"
 import { CustomToaster } from "@/components/Toaster/CustomToaster"
 import { NextIntlClientProvider, hasLocale } from "next-intl"
