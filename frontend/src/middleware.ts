@@ -1,36 +1,11 @@
-import { NextRequest, NextResponse } from "next/server"
+import createMiddleware from "next-intl/middleware"
+import { routing } from "./i18n/routing"
 
-let locales = ["nl", "en", "de"]
-let defaultLocale = "nl"
-
-// Get the preferred locale, similar to the above or using a library
-function getLocale(request: NextRequest) {
-  const acceptLanguage = request.headers.get("Accept-Language")
-  const preferredLocale = acceptLanguage?.split(",").map((l) => l.split(";")[0])
-  return preferredLocale?.find((locale) => locales.includes(locale)) || defaultLocale
-}
-
-export function middleware(request: NextRequest) {
-  const { pathname } = request.nextUrl
-
-  const lang = getLocale(request)
-
-  if (request.nextUrl.pathname.includes(".")) {
-    const ignorePathNames = ["/robots.txt", "/sitemap.xml"]
-
-    if (request.nextUrl.locale !== defaultLocale && !ignorePathNames.includes(request.nextUrl.pathname)) {
-      const url = request.nextUrl.clone()
-      url.locale = defaultLocale
-      return NextResponse.redirect(url)
-    }
-  }
-}
+export default createMiddleware(routing)
 
 export const config = {
-  matcher: [
-    // Skip all internal paths (_next)
-    "/((?!_next).*)",
-    // Optional: only run on root (/) URL
-    // '/'
-  ],
+  // Match all pathnames except for
+  // - … if they start with `/api`, `/trpc`, `/_next` or `/_vercel`
+  // - … the ones containing a dot (e.g. `favicon.ico`)
+  matcher: "/((?!api|trpc|_next|_vercel|.*\\..*).*)",
 }

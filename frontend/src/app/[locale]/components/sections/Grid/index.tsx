@@ -8,8 +8,8 @@ import Slider from "@/components/global/Slider"
 import React from "react"
 
 // TODO: useSection hook
-// export default function Grid({ id, __component, lang }: UseSectionProps) {
-// const { data } = useSection({ id, __component, lang });
+// export default function Grid({ id, __component, locale }: UseSectionProps) {
+// const { data } = useSection({ id, __component, locale });
 // const { posters, titles } = data as HeroProps;
 
 export default function Grid(props: GridProps) {

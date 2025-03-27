@@ -1,22 +1,25 @@
 "use server"
 import { sectionRenderer } from "@/utils/core/section-renderer"
 import React from "react"
-import Script from "next/script"
-import getData from "@/utils/models/get-data"
+import { NextSeo } from "next-seo"
 import App from "@/components/global/App"
+import getData from "@/utils/models/get-data"
+import Script from "next/script"
 
-interface HomeProps {
+interface Props {
   params: Promise<{
-    lang: string
+    slug: string
+    locale: string
   }>
 }
 
-export default async function Home(props: HomeProps) {
+export default async function Page(props: Props) {
   const params = await props.params
   const { globalData, themeData, pageData } = await getData({
-    slug: "home",
-    lang: params.lang,
+    slug: params.slug,
+    locale: params.locale,
   })
+
   const { meta, sections } = pageData
 
   const metaText = {
@@ -27,14 +30,15 @@ export default async function Home(props: HomeProps) {
   }
 
   return (
-    <App params={{ lang: params.lang, globalData, themeData, pageData }}>
+    <App params={{ locale: params.locale, globalData, themeData, pageData }}>
       <div className="sections">
         {meta && (
           <Script id="meta-schema" type="application/ld+json">
             {JSON.stringify(metaText)}
           </Script>
         )}
-        {sections?.map((section: any, index: number) => sectionRenderer(section, params.lang, index))}
+        <NextSeo title={metaText.name} description={metaText.description} />
+        {sections?.map((section: any, index: number) => sectionRenderer(section, params.locale, index))}
       </div>
     </App>
   )

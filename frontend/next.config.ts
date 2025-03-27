@@ -1,7 +1,7 @@
-/** @type {import('next').NextConfig} */
-const { i18n } = require("./next-i18next.config")
+import { NextConfig } from "next"
+import createNextIntlPlugin from "next-intl/plugin"
 
-const nextConfig = {
+const nextConfig: NextConfig = {
   env: {
     RECAPTCHA_SITE_KEY: process.env.RECAPTCHA_SITE_KEY,
   },
@@ -28,7 +28,7 @@ const nextConfig = {
       },
     ],
   },
-  i18n,
 }
 
-module.exports = nextConfig
+const withNextIntl = createNextIntlPlugin()
+export default withNextIntl(nextConfig)

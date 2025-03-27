@@ -10,8 +10,8 @@ import { GalleryModal } from "./GalleryModal"
 import { Parts } from "@/Interfaces/api.interface"
 
 // TODO: useSection hook
-// export default function Gallery({ id, __component, lang }: UseSectionProps) {
-// const { data } = useSection({ id, __component, lang });
+// export default function Gallery({ id, __component, locale }: UseSectionProps) {
+// const { data } = useSection({ id, __component, locale });
 // const { posters, titles } = data as HeroProps;
 
 export default function Gallery(props: GalleryProps) {
