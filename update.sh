@@ -1,4 +1,7 @@
 #!/bin/bash
+
+# TODO ::: upgrade the file and replace to jaccos-bin
+
 if [[ ! -d "/home/debian" ]]; then
   echo "you are not on the server"
     exit 1
@@ -48,4 +51,4 @@ if [[ $SHOULD_PUSH_FILES -eq 1 ]]; then
   ../jaccos-bin/load-data.sh -a "$PROJECT_DIR"
 fi
 
-echo "# done! 🎉" 
+echo "# done! 🎉"
