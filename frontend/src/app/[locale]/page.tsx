@@ -28,7 +28,7 @@ export default async function Home(props: HomeProps) {
 
   return (
     <App params={{ locale: locale, globalData, themeData, pageData }}>
-      <div className="sections">
+      <div className="sections" id="home">
         {meta && (
           <Script id="meta-schema" type="application/ld+json">
             {JSON.stringify(metaText)}

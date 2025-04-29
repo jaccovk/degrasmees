@@ -1,7 +1,7 @@
 "use client"
 import styles from "./Gallery.module.scss"
 import { GalleryProps } from "@/Interfaces/strapi-components/sections.interface"
-import propertyExists from "@/utils/property-exists"
+import propertyExists from "@/utils/core/property-exists"
 import NextMedia from "@/components/global/Media/NextMedia"
 import Slider from "@/components/global/Slider"
 import React, { useEffect, useState } from "react"

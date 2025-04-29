@@ -31,7 +31,7 @@ export default async function Page(props: Props) {
 
   return (
     <App params={{ locale: params.locale, globalData, themeData, pageData }}>
-      <div className="sections">
+      <div className="sections" id="home">
         {meta && (
           <Script id="meta-schema" type="application/ld+json">
             {JSON.stringify(metaText)}
