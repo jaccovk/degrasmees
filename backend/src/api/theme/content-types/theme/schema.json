@@ -4,7 +4,7 @@
   "info": {
     "singularName": "theme",
     "pluralName": "themes",
-    "displayName": "Theme",
+    "displayName": "Thema",
     "description": ""
   },
   "options": {
@@ -14,21 +14,20 @@
   "attributes": {
     "darkMode": {
       "type": "boolean",
-      "default": true,
-      "required": true
+      "required": true,
+      "default": true
     },
     "containerWidth": {
       "type": "integer",
       "required": true,
       "default": 90,
-      "max": 100,
-      "min": 50
+      "min": 50,
+      "max": 100
     },
     "colors": {
-      "displayName": "colors",
       "type": "component",
-      "repeatable": false,
       "component": "layout.colors",
+      "repeatable": false,
       "required": true
     }
   }

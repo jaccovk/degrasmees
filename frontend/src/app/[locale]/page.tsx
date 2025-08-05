@@ -3,7 +3,7 @@ import { sectionRenderer } from "@/utils/core/section-renderer"
 import React from "react"
 import Script from "next/script"
 import getData from "@/utils/models/get-data"
-import App from "@/components/global/App"
+import App from "@/components/App"
 
 interface HomeProps {
   params: Promise<{

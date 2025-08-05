@@ -2,7 +2,7 @@
 import { sectionRenderer } from "@/utils/core/section-renderer"
 import React from "react"
 import { NextSeo } from "next-seo"
-import App from "@/components/global/App"
+import App from "@/components/App"
 import getData from "@/utils/models/get-data"
 import Script from "next/script"
 
