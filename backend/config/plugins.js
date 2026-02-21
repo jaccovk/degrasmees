@@ -1,4 +1,21 @@
 module.exports = ({env}) => ({
+  upload: {
+    config: {
+      security: {
+        contentSecurityPolicy: {
+          // Voorkom fouten bij het laden van beelden in de admin
+          "img-src": ["'self'", "data:", "blob:"],
+        },
+      },
+      // Optioneel: extra validatie (v5 feature)
+      // contentTypes: [
+      //   'image/jpeg',
+      //   'image/png',
+      //   'image/webp',
+      //   'application/pdf',
+      // ],
+    },
+  },
   email: {
     config: {
       provider: 'nodemailer',
