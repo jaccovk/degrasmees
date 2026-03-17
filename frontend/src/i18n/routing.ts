@@ -1,9 +1,37 @@
 import { defineRouting } from "next-intl/routing"
+import { RouteModels, getSupportedLocales } from "@/lib/core/route-resolver"
 
 const isDev = process.env.NODE_ENV === "development"
+const locales = getSupportedLocales()
+
+const generatedPathnames = Object.entries(RouteModels).reduce(
+  (acc, [model, translations]) => {
+    if (model === "home") {
+      acc["/"] = "/"
+      return acc
+    }
+
+    if (model === "pages") {
+      acc["/[slug]"] = "/[slug]"
+      return acc
+    }
+
+    const basePath = `/${model}` // e.g. "/life-chapters"
+    const dynamicPath = `/${model}/[slug]` // e.g. "/life-chapters/[slug]"
+
+    // e.g. { nl: "/hoofdstukken", en: "/chapters" }
+    acc[basePath] = translations
+
+    // generate automatically the [slug] variants
+    acc[dynamicPath] = Object.fromEntries(Object.entries(translations).map(([lang, path]) => [lang, `${path}/[slug]`]))
+
+    return acc
+  },
+  {} as Record<string, any>
+)
 
 export const routing = defineRouting({
-  locales: ["nl", "en"],
+  locales: locales,
   defaultLocale: "nl",
   domains: [
     {
@@ -17,5 +45,6 @@ export const routing = defineRouting({
       locales: ["en"],
     },
   ],
-  localePrefix: "never",
+  localePrefix: "never", // no /nl/ or /en/ in the URL!
+  pathnames: generatedPathnames,
 })

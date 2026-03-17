@@ -17,32 +17,32 @@
   },
   "attributes": {
     "title": {
+      "type": "string",
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
       },
-      "type": "string",
       "required": true
     },
     "meta": {
       "type": "component",
-      "repeatable": false,
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
       },
       "component": "layout.meta",
+      "repeatable": false,
       "required": true
     },
     "sections": {
+      "type": "dynamiczone",
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
       },
-      "type": "dynamiczone",
       "components": [
         "sections.hero",
         "sections.media-float",
@@ -50,18 +50,19 @@
         "sections.storyline-float",
         "sections.grid",
         "sections.gallery",
-        "sections.form-selector"
+        "sections.form-selector",
+        "sections.latest-content-types"
       ]
     },
     "useOverlay": {
+      "type": "boolean",
       "pluginOptions": {
         "i18n": {
           "localized": false
         }
       },
-      "type": "boolean",
-      "default": true,
-      "required": true
+      "required": true,
+      "default": true
     }
   }
 }

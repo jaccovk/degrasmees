@@ -58,7 +58,8 @@
         "sections.storyline-float",
         "sections.gallery",
         "sections.grid",
-        "sections.form-selector"
+        "sections.form-selector",
+        "sections.latest-content-types"
       ]
     },
     "useOverlay": {

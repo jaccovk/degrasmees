@@ -1,57 +1,79 @@
-@import '../../../styles/global';
+@import '@/styles/global';
 
-.small {
-  .overlay {
-    height: 45vh;
-  }
+.block {
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
 }
 
 .large {
-  .overlay {
-    height: 90vh;
-  }
+  height: 85vh;
+  min-height: 600px;
 
-  .content {
-    @include flex(center);
-    text-align: center;
+  :global(.custom-slider-container) {
+    height: 100%;
+    > div {
+      height: 100%;
+    }
   }
 }
 
-.block {
-  @include stack;
-  overflow: hidden;
-  width: 100%;
+.small {
+  height: 40vh;
+  min-height: 350px;
 }
 
 .overlay {
-  position: relative;
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
-  img, video {
-    animation: zoom 20s ease-in-out infinite;
+  height: 100%;
+  z-index: 1;
+
+  &::after {
+    content: "";
     position: absolute;
-    bottom: 0;
+    inset: 0;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.6) 100%);
+  }
+
+  img, video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    animation: slowPan 30s ease-in-out infinite;
   }
 }
 
 .content {
-  z-index: 1;
+  position: relative;
+  z-index: 2;
+  text-align: center;
   width: 100%;
-  height: 100%;
-  @include flex(left);
-  pointer-events: none;
+  padding: 0 $spacing-lg;
 
   h1 {
-    @include fitText;
-    color: $text-secondary;
+    font-size: clamp(36px, 6vw, 64px);
+    color: white;
+    font-weight: 800;
+    letter-spacing: 2px;
+    margin: 0;
+    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
   }
 }
 
-@keyframes zoom {
+@keyframes slowPan {
   0% {
     transform: scale(1);
   }
   50% {
-    transform: scale(1.2);
+    transform: scale(1.05);
   }
   100% {
     transform: scale(1);

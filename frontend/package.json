@@ -1,6 +1,6 @@
 {
   "name": "frontend",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@formatjs/intl-localematcher": "^0.4.2",
+    "@strapi/blocks-react-renderer": "^1.0.2",
     "@types/negotiator": "^0.6.2",
     "@types/qs": "^6.9.9",
     "axios": "^1.8.4",

@@ -1,14 +1,14 @@
 "use client"
 import React, { useState } from "react"
-import styles from "./Navbar.module.scss"
+import styles from "@/components/navigation/Navbar/Navbar.module.scss"
 import { LinkProps } from "@/Interfaces/strapi-components/link.interface"
 import CustomLink from "@/components/link/CustomLink"
-import { useGlobalContext } from "@/global/contexts/global.context"
 import useDarkMode from "@/theme/hooks/useDarkMode.hook"
 import HamburgerMenu from "@/components/navigation/HamburgerMenu"
 import MobileNavigationMenu from "@/components/navigation/MobileNavigationMenu"
 import NextMedia from "@/components/media/NextMedia"
 import { Parts } from "@/Interfaces/api.interface"
+import { useRouter } from "next/navigation"
 
 function NavLink(props: { link: LinkProps }) {
   const { link } = props
@@ -20,8 +20,8 @@ function NavLink(props: { link: LinkProps }) {
   )
 }
 
-export default function Navbar() {
-  const { global } = useGlobalContext()
+export default function Navbar({ global }: { global: any }) {
+  const router = useRouter()
   const { ThemeSwitch } = useDarkMode()
   const [mobileMenuIsShown, setMobileMenuIsShown] = useState(false)
 
@@ -29,13 +29,17 @@ export default function Navbar() {
   const links: LinkProps[] = global?.navigation?.links || ([] as LinkProps[])
 
   return (
-    <div className="navigation-container">
+    <header className={styles.navigation_container}>
       <nav className={styles.navigation}>
         <div className={styles.block}>
           <div className={styles.logo}>
-            {/*<NextMedia media={logo} isLink />*/}
-            <span>{global?.personaldata?.fullName || ""}</span>
+            {Object.keys(logo).length !== 0 ? (
+              <NextMedia media={logo} isLink />
+            ) : (
+              <span onClick={() => router.push("/")}>{global?.personaldata?.fullName || ""}</span>
+            )}
           </div>
+
           <div className={styles.content}>
             <ul>{links && links.map((link) => <NavLink key={link.id} link={link} />)}</ul>
             <ThemeSwitch />
@@ -46,6 +50,6 @@ export default function Navbar() {
         </div>
       </nav>
       <MobileNavigationMenu links={links} isOpen={mobileMenuIsShown} closeSelf={() => setMobileMenuIsShown(false)} />
-    </div>
+    </header>
   )
 }

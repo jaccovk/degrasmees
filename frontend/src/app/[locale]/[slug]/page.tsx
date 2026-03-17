@@ -1,44 +1,42 @@
-"use server"
-import { sectionRenderer } from "@/utils/core/section-renderer"
+import { sectionRenderer } from "@/lib/core/section-renderer"
 import React from "react"
-import { NextSeo } from "next-seo"
 import App from "@/components/App"
-import getData from "@/utils/models/get-data"
-import Script from "next/script"
+import { notFound } from "next/navigation"
+import { Metadata } from "next"
+import { fetchPage } from "@/lib/models/page/fetch-page"
+import { INextPageProps } from "@/Interfaces/strapi-types/next.interface"
 
-interface Props {
-  params: Promise<{
-    slug: string
-    locale: string
-  }>
+export async function generateMetadata({ params }: INextPageProps): Promise<Metadata> {
+  const { slug, locale } = await params
+  const pageData = await fetchPage({ slug, locale })
+
+  if (!pageData) return {}
+
+  return {
+    title: pageData.meta?.metaTitle || "CvdK",
+    description: pageData.meta?.metaDescription || "",
+  }
 }
 
-export default async function Page(props: Props) {
-  const params = await props.params
-  const { globalData, themeData, pageData } = await getData({
-    slug: params.slug,
-    locale: params.locale,
-  })
+export default async function Page(props: INextPageProps) {
+  const { slug, locale } = await props.params
 
-  const { meta, sections } = pageData
+  const pageData = await fetchPage({ slug, locale })
 
-  const metaText = {
-    "@context": "https://schema.org",
-    "@type": "WebPage",
-    name: meta?.metaTitle || "",
-    description: meta?.metaDescription || "",
+  if (!pageData || !Object.keys(pageData).length) {
+    notFound()
   }
 
+  const { sections } = pageData
+
   return (
-    <App params={{ locale: params.locale, globalData, themeData, pageData }}>
-      <div className="sections" id="home">
-        {meta && (
-          <Script id="meta-schema" type="application/ld+json">
-            {JSON.stringify(metaText)}
-          </Script>
+    <App locale={locale} pageData={pageData}>
+      <div className="sections" id="page-content">
+        {sections && Array.isArray(sections) ? (
+          sections.map((section: any, index: number) => sectionRenderer(section, locale, index, props))
+        ) : (
+          <p>Geen secties gevonden voor deze pagina.</p>
         )}
-        <NextSeo title={metaText.name} description={metaText.description} />
-        {sections?.map((section: any, index: number) => sectionRenderer(section, params.locale, index))}
       </div>
     </App>
   )

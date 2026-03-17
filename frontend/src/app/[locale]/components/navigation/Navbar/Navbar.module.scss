@@ -1,5 +1,19 @@
 @import '@/styles/global';
 
+.navigation_container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  background-color: $background-secondary;
+  box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+
+  [data-theme="dark"] & {
+    background-color: $background-primary;
+  }
+}
+
 .navigation {
   @include container;
   width: 100%;

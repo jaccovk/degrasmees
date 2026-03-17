@@ -1,40 +1,43 @@
-"use server"
-import { sectionRenderer } from "@/utils/core/section-renderer"
+import { sectionRenderer } from "@/lib/core/section-renderer"
 import React from "react"
-import Script from "next/script"
-import getData from "@/utils/models/get-data"
 import App from "@/components/App"
+import { Metadata } from "next"
+import { notFound } from "next/navigation"
+import { fetchPage } from "@/lib/models/page/fetch-page"
+import { INextPageProps } from "@/Interfaces/strapi-types/next.interface"
 
-interface HomeProps {
-  params: Promise<{
-    locale: string
-  }>
-}
+export async function generateMetadata({ params }: INextPageProps): Promise<Metadata> {
+  const { locale } = await params
+  const pageData = await fetchPage({ slug: "home", locale })
 
-export default async function Home(props: HomeProps) {
-  const { locale } = await props.params
-  const { globalData, themeData, pageData } = await getData({
-    slug: "home",
-    locale: locale,
-  })
-  const { meta, sections } = pageData
-
-  const metaText = {
-    "@context": "https://schema.org",
-    "@type": "WebPage",
-    name: meta?.metaTitle || "",
-    description: meta?.metaDescription || "",
+  if (!pageData || !Object.keys(pageData).length) {
+    notFound()
   }
 
+  const { meta } = pageData
+
+  return {
+    // "@context": "https://schema.org", TODO !!!
+    // "@type": "WebPage",
+    title: meta?.metaTitle || "",
+    description: meta?.metaDescription || "",
+  }
+}
+
+export default async function Home(props: INextPageProps) {
+  const { locale } = await props.params
+  const pageData = await fetchPage({ slug: "home", locale })
+
+  if (!pageData || !Object.keys(pageData).length) {
+    notFound()
+  }
+
+  const { sections } = pageData
+
   return (
-    <App params={{ locale: locale, globalData, themeData, pageData }}>
+    <App locale={locale} pageData={pageData}>
       <div className="sections" id="home">
-        {meta && (
-          <Script id="meta-schema" type="application/ld+json">
-            {JSON.stringify(metaText)}
-          </Script>
-        )}
-        {sections?.map((section: any, index: number) => sectionRenderer(section, locale, index))}
+        {sections?.map((section: any, index: number) => sectionRenderer(section, locale, index, props))}
       </div>
     </App>
   )

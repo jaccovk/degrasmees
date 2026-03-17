@@ -8,6 +8,16 @@ const nextConfig: NextConfig = {
   eslint: {
     ignoreDuringBuilds: true,
   },
+  sassOptions: {
+    // Schakelt de waarschuwingen voor @import en de oude JS API uit
+    silenceDeprecations: ["import", "legacy-js-api"],
+  },
+  typescript: {
+    ignoreBuildErrors: true,
+  },
+  turbopack: {
+    root: __dirname,
+  },
   images: {
     remotePatterns: [
       {

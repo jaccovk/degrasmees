@@ -18,7 +18,6 @@ module.exports = {
    */
   async bootstrap({strapi}) {
     try {
-      // console.log(result) // TODO
       const sharp = require('sharp')
 
       // Hulpfunctie om streams om te zetten naar een bewerkbare buffer
@@ -45,7 +44,7 @@ module.exports = {
                 const buffer = data.getStream
                   ? await streamToBuffer(data.getStream())
                   : data.buffer
-                console.log("buffer data", buffer)
+                // console.log("buffer data", buffer)
 
                 if (!buffer) return
 
@@ -53,7 +52,7 @@ module.exports = {
                 const resizedBuffer = await sharp(buffer)
                   .resize(1920, null, {withoutEnlargement: true}) // Nooit vergroten
                   .toBuffer()
-                console.log(resizedBuffer)
+                // console.log(resizedBuffer)
 
                 // Overschrijf de data voor Strapi
                 const metadata = await sharp(resizedBuffer).metadata()
@@ -61,10 +60,10 @@ module.exports = {
                 data.size = resizedBuffer.length / 1024 // Grootte in KB
                 data.width = metadata.width
                 data.height = metadata.height
-                console.log('size', data.size)
-                console.log('metadata', metadata)
+                // console.log('size', data.size)
+                // console.log('metadata', metadata)
 
-                console.log(`Afbeelding verkleind: ${data.name} nu ${Math.round(data.size)} KB`)
+                // console.log(`Afbeelding verkleind: ${data.name} nu ${Math.round(data.size)} KB`)
               } catch (err) {
                 console.error('Fout bij verkleinen afbeelding:', err)
               }

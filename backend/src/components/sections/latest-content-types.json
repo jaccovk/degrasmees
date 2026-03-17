@@ -1,0 +1,31 @@
+{
+  "collectionName": "components_sections_latest_content_types",
+  "info": {
+    "displayName": "LatestContentTypes",
+    "icon": "bulletList"
+  },
+  "options": {},
+  "attributes": {
+    "selectedContentType": {
+      "type": "enumeration",
+      "required": true,
+      "enum": [
+        "life-chapters"
+      ]
+    },
+    "displayComponent": {
+      "type": "enumeration",
+      "required": true,
+      "enum": [
+        "Grid"
+      ]
+    },
+    "limit": {
+      "type": "integer"
+    },
+    "title": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}

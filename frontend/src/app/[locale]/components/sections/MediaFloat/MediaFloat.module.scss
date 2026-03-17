@@ -1,30 +1,60 @@
 @import '@/styles/global';
 
 .block {
-  @include grid(2, 10rem, 0rem);
-  text-align: center;
+  @include container;
+  @include yPadding;
+  @include grid(2, $spacing-2xl);
+  align-items: center;
 
-  @include smallDevice() {
-    @include grid(1, 10rem, 0rem);
+  @include smallDevice {
+    @include grid(1, $spacing-xl);
   }
-}
-
-.left {
-}
-
-.right {
 }
 
 .content {
-  @include container;
   width: 100%;
 
-  @include largeDevice {
-    width: 50%;
-    @include flex;
+  h2 {
+    font-size: $font-size-3xl;
+    color: $secondary; // Wordt prachtig als dit donkergroen is!
+    margin-bottom: $spacing-lg;
+    position: relative;
+    padding-bottom: $spacing-sm;
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0;
+      width: 60px;
+      height: 4px;
+      background-color: $primary; // Groen of zandkleurig accent
+    }
   }
 
-  h2 {
-    margin-top: 0;
+  p {
+    font-size: $font-size-base;
+    line-height: 1.8;
+    color: rgba($text-primary, 0.8);
+    margin-bottom: $spacing-md;
+
+    [data-theme="dark"] & {
+      color: rgba(255, 255, 255, 0.8);
+    }
+  }
+}
+
+.mediaColumn {
+  width: 100%;
+  position: relative;
+  border-radius: 4px; // Heel lichte afronding voor de strakke look
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+  aspect-ratio: 4 / 5; // Mooie verticale portret verhouding voor zijn machine/werkfoto
+
+  img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
   }
 }

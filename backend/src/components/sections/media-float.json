@@ -11,7 +11,7 @@
       "type": "string"
     },
     "content": {
-      "type": "richtext"
+      "type": "blocks"
     },
     "media": {
       "type": "media",
@@ -24,17 +24,34 @@
     },
     "float": {
       "type": "enumeration",
+      "required": true,
+      "default": "left",
       "enum": [
         "left",
         "right"
-      ],
-      "default": "left",
-      "required": true
+      ]
+    },
+    "theme": {
+      "type": "enumeration",
+      "default": "primary",
+      "enum": [
+        "primary",
+        "secondary",
+        "tertiary"
+      ]
+    },
+    "mediaFit": {
+      "type": "enumeration",
+      "default": "contain",
+      "enum": [
+        "contain",
+        "cover"
+      ]
     },
     "actions": {
       "type": "component",
-      "repeatable": true,
-      "component": "link.link"
+      "component": "link.link",
+      "repeatable": true
     }
   }
 }

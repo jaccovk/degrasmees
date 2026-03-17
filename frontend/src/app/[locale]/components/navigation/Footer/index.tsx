@@ -1,17 +1,11 @@
-"use client"
 import styles from "@/components/navigation/Footer/Footer.module.scss"
 import { LinkProps, SocialLinkProps } from "@/Interfaces/strapi-components/link.interface"
-import React from "react"
-import { useGlobalContext } from "@/global/contexts/global.context"
-import NextMedia from "@/components/media/NextMedia"
 import PersonalData from "@/components/elements/PersonalData"
+import NextMedia from "@/components/media/NextMedia"
 
-export default function Footer() {
-  const { global } = useGlobalContext()
-
-  const logo = global?.navigation?.logoFooter
-  const links: LinkProps[] = global?.navigation?.links || ([] as LinkProps[])
-  const socialLinks: SocialLinkProps[] = global?.navigation?.socialLinks || ([] as SocialLinkProps[])
+export default function Footer({ global }: { global: any }) {
+  const links: LinkProps[] = global?.navigation?.links || []
+  const socialLinks: SocialLinkProps[] = global?.navigation?.socialLinks || []
 
   return (
     <footer className={styles.block}>
@@ -22,10 +16,10 @@ export default function Footer() {
           {/*<NextMedia media={logo} width={50} height={50} isLink />*/}
         </div>
         {/*)}*/}
-        <PersonalData></PersonalData>
+        <PersonalData global={global}></PersonalData>
       </div>
       <hr />
-      <div className={styles.practical_info}>
+      <div className={styles.practicalInfo}>
         <span>©{new Date().getFullYear()} by Jacco van Kooten</span>
         <div className={styles.social_links}>
           {socialLinks &&

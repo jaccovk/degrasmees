@@ -1,71 +1,68 @@
 @import '@/styles/global';
 
 .custom-form {
+  background-color: $background-secondary;
+  padding: $spacing-2xl;
+  border-radius: 4px;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+
+  [data-theme="dark"] & {
+    background-color: rgba(255,255,255,0.02);
+  }
+
   form {
-    @include flex(flex-start, $direction: row, $align: flex-start, $gap: $spacing-md);
+    display: flex;
+    flex-wrap: wrap;
+    gap: $spacing-md;
 
-    p { // helper text
-      font-size: 13px;
-      color: $gray;
-      margin-top: $spacing-2xs;
-      margin-bottom: 0;
-      padding-left: $form-padding;
-    }
-
-    label {
-      margin-bottom: $spacing-xs;
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
     }
 
     input, textarea {
-      width: -webkit-fill-available;
-      font-size: $font-size-sm;
-      font-family: Arial;
-      padding: $form-padding;
+      width: 100%;
+      padding: 16px;
+      background-color: rgba(0,0,0,0.03);
+      border: 1px solid transparent;
+      border-bottom: 2px solid rgba(0,0,0,0.1);
+      border-radius: 4px 4px 0 0;
+      font-size: 1rem;
+      transition: all 0.3s ease;
 
-      &::placeholder {
-        color: $gray;
+      [data-theme="dark"] & {
+        background-color: rgba(255,255,255,0.05);
+        border-bottom-color: rgba(255,255,255,0.1);
+        color: white;
       }
 
       &:focus {
         outline: none;
-        border-color: $primary;
-      }
-
-      &:disabled {
-        background-color: $gray-light;
+        background-color: transparent;
+        border-bottom-color: $primary;
       }
     }
-  }
 
-  .invalid {
-    border-color: $error;
-  }
+    button[type="submit"] {
+      width: 100%;
+      padding: 16px;
+      margin-top: $spacing-md;
+      background-color: $secondary;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      cursor: pointer;
+      transition: all 0.3s ease;
 
-  .required {
-    color: $error !important;
-  }
-
-  .hide {
-    display: none;
-  }
-
-  .show {
-    display: block;
-  }
-
-  .width-full {
-    flex: 0 0 100%;
-  }
-
-  .width-half {
-    flex: 0 0 calc(50% - (calc(#{$spacing-md} / 2)));
-
-    @include betweenDevice {
-      flex: 0 0 100%;
-    }
-
-    @include smallDevice($breakpoint-sm) {
-      flex: 0 0 100%;
+      &:hover {
+        background-color: $primary;
+        transform: translateY(-2px);
+      }
     }
   }
 }
