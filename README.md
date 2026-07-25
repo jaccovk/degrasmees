@@ -26,7 +26,6 @@ Run `yarn start` to start the frontend and backend on the development server.
 
 ## To Do's 
 ### general
-- [ ] Fix `pagespeed` (recaptcha to another page?)
 - [ ] Add `plugin` to Strapi Form Builder that adds to the fields: (if A than B)
 - [ ] Fix `Server Side Components`; each section should fetch its own data
 - [ ] Update .env in `clone-project.sh` with nodemailer
