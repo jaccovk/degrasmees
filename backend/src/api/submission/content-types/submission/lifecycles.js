@@ -1,4 +1,4 @@
-const sendMail = require('../../../../../backend-base/mail/send-mail')
+const sendMail = require('../../../../../base/mail/send-mail')
 
 module.exports = {
   async afterCreate(event) {

@@ -2,7 +2,7 @@
 
 # TODO ::: upgrade the file and replace to jaccos-bin
 
-if [[ ! -d "/home/debian" ]]; then
+if [[ ! -d "/home/jacco" ]]; then
   echo "you are not on the server"
     exit 1
 fi
