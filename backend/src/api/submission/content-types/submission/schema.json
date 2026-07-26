@@ -28,6 +28,17 @@
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::mail-template.mail-template"
+    },
+    "mailStatus": {
+      "type": "enumeration",
+      "enum": ["pending", "sent", "failed"],
+      "default": "pending"
+    },
+    "mailError": {
+      "type": "text"
+    },
+    "mailSentAt": {
+      "type": "datetime"
     }
   }
 }

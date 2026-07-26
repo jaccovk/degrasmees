@@ -15,4 +15,4 @@ files.tgz
 strapi-dump**
 
 # backend
-backend/types
+backend/types/**
