@@ -2,9 +2,6 @@ import { NextConfig } from "next"
 import createNextIntlPlugin from "next-intl/plugin"
 
 const nextConfig: NextConfig = {
-  env: {
-    RECAPTCHA_SITE_KEY: process.env.RECAPTCHA_SITE_KEY,
-  },
   sassOptions: {
     // Schakelt de waarschuwing voor de oude JS API uit
     silenceDeprecations: ["legacy-js-api"],
