@@ -1,0 +1,59 @@
+{
+  "collectionName": "components_form_datefields",
+  "info": {
+    "displayName": "Datefield",
+    "icon": "calendar"
+  },
+  "options": {},
+  "attributes": {
+    "label": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string",
+      "required": true,
+      "regex": "^[a-zA-Z_-]+$"
+    },
+    "help": {
+      "type": "string"
+    },
+    "required": {
+      "type": "boolean",
+      "default": false
+    },
+    "error": {
+      "type": "string"
+    },
+    "disabled": {
+      "type": "boolean",
+      "default": false
+    },
+    "size": {
+      "type": "enumeration",
+      "enum": [
+        "half",
+        "full"
+      ],
+      "default": "full",
+      "required": true
+    },
+    "min": {
+      "type": "date"
+    },
+    "max": {
+      "type": "date"
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "date",
+        "birthdate"
+      ],
+      "default": "date"
+    },
+    "minAge": {
+      "type": "integer",
+      "default": 5
+    }
+  }
+}

@@ -1,8 +1,8 @@
 {
-  "collectionName": "components_form_textareafields",
+  "collectionName": "components_form_chip_input_fields",
   "info": {
-    "displayName": "Textareafield",
-    "icon": "file"
+    "displayName": "Chip Input Field",
+    "icon": "bulletList"
   },
   "options": {},
   "attributes": {
@@ -14,28 +14,21 @@
       "required": true,
       "regex": "^[a-zA-Z_-]+$"
     },
-    "placeholder": {
-      "type": "string"
+    "max": {
+      "type": "integer",
+      "default": 2
     },
     "help": {
       "type": "string"
     },
-    "rows": {
-      "type": "integer",
-      "default": 3
+    "error": {
+      "type": "string"
     },
     "required": {
       "type": "boolean",
       "default": false
     },
-    "error": {
-      "type": "string"
-    },
-    "disabled": {
-      "type": "boolean",
-      "default": false
-    },
-    "validator": {
+    "placeholder": {
       "type": "string"
     }
   }

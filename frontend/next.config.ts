@@ -5,12 +5,9 @@ const nextConfig: NextConfig = {
   env: {
     RECAPTCHA_SITE_KEY: process.env.RECAPTCHA_SITE_KEY,
   },
-  eslint: {
-    ignoreDuringBuilds: true,
-  },
   sassOptions: {
-    // Schakelt de waarschuwingen voor @import en de oude JS API uit
-    silenceDeprecations: ["import", "legacy-js-api"],
+    // Schakelt de waarschuwing voor de oude JS API uit
+    silenceDeprecations: ["legacy-js-api"],
   },
   typescript: {
     ignoreBuildErrors: true,
@@ -37,6 +34,9 @@ const nextConfig: NextConfig = {
         pathname: "/uploads/**",
       },
     ],
+    // Alleen nodig voor de lokale "localhost"-remotePattern hierboven; productie-hosts
+    // (test.jaccovankooten.nl, strapi.**) zijn geen local IPs en werken hier los van.
+    dangerouslyAllowLocalIP: process.env.NODE_ENV === "development",
   },
 }
 

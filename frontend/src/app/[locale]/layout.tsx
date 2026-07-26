@@ -6,6 +6,7 @@ import { notFound } from "next/navigation"
 import { routing } from "@/../i18n/routing"
 import { setRequestLocale } from "next-intl/server"
 import { fetchTheme } from "@/lib/models/theme/fetch-theme"
+import getColors from "@/lib/config/getColors"
 import { Metadata } from "next"
 // import { GoogleAnalytics } from "@next/third-parties/google"
 import { Montserrat, Inter } from "next/font/google"
@@ -33,12 +34,15 @@ export default async function RootLayout({ params, children }: RootLayoutProps) 
 
   const themeData = await fetchTheme()
   const initialTheme = themeData?.darkMode ? "dark" : "light"
+  const colorVariables = getColors(themeData?.colors)
 
   return (
     <html
       lang={locale}
       className={classNames(inter.variable, montserrat.variable, inter.className)}
       data-theme={initialTheme}
+      data-scroll-behavior="smooth"
+      style={{ ...colorVariables }}
     >
       <body>
         <CustomToaster />

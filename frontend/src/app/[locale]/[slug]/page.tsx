@@ -13,7 +13,7 @@ export async function generateMetadata({ params }: INextPageProps): Promise<Meta
   if (!pageData) return {}
 
   return {
-    title: pageData.meta?.metaTitle || "CvdK",
+    title: pageData.meta?.metaTitle || "",
     description: pageData.meta?.metaDescription || "",
   }
 }

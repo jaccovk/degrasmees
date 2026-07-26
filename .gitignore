@@ -13,3 +13,6 @@ yarn.lock
 files.tgz
 
 strapi-dump**
+
+# backend
+backend/types

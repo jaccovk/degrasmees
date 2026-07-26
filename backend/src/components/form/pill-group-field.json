@@ -1,0 +1,33 @@
+{
+  "collectionName": "components_form_pill_group_fields",
+  "info": {
+    "displayName": "Pill Group Field",
+    "icon": "oneToMany"
+  },
+  "options": {},
+  "attributes": {
+    "label": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string",
+      "required": true,
+      "regex": "^[a-zA-Z_-]+$"
+    },
+    "required": {
+      "type": "boolean",
+      "default": false
+    },
+    "help": {
+      "type": "string"
+    },
+    "error": {
+      "type": "string"
+    },
+    "options": {
+      "type": "component",
+      "repeatable": true,
+      "component": "elements.option"
+    }
+  }
+}

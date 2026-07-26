@@ -1,14 +1,5 @@
-$gray-light: rgba(219,200,190,0.4);
-$gray-dark: rgba(30,32,37, 0.4);
-
-// TYPOGRAPHY
-$font-family: 'inter';
+// $font-family's override ('inter' vs. base's !default 'Roboto') is configured
+// in _global.scss via `@forward "../../../base/styles/variables" with (...)`
+// — Sass module configuration can only happen at a module's first load in the
+// whole graph, so it can't live here anymore; it must sit at the entry point.
 $font-family-headers: 'montserrat';
-$font-size-xl: clamp(16px, 5vw, 20px);
-$font-size-2xl: clamp(25px, 5vw, 28px); // h3
-$font-size-3xl: clamp(36px, 5vw, 50px); // h2
-$font-size-4xl: clamp(44px, 5vw, 60px); // h1
-$font-size-5xl: clamp(52px, 5vw, 72px);
-
-// LOADER
-$loader-color: $secondary;

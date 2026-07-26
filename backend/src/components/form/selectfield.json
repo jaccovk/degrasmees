@@ -1,8 +1,8 @@
 {
-  "collectionName": "components_form_textareafields",
+  "collectionName": "components_form_selectfields",
   "info": {
-    "displayName": "Textareafield",
-    "icon": "file"
+    "displayName": "Selectfield",
+    "icon": "bulletList"
   },
   "options": {},
   "attributes": {
@@ -20,10 +20,6 @@
     "help": {
       "type": "string"
     },
-    "rows": {
-      "type": "integer",
-      "default": 3
-    },
     "required": {
       "type": "boolean",
       "default": false
@@ -35,8 +31,19 @@
       "type": "boolean",
       "default": false
     },
-    "validator": {
-      "type": "string"
+    "size": {
+      "type": "enumeration",
+      "enum": [
+        "half",
+        "full"
+      ],
+      "default": "full",
+      "required": true
+    },
+    "options": {
+      "type": "component",
+      "repeatable": true,
+      "component": "elements.option"
     }
   }
 }

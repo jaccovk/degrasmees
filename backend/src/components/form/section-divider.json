@@ -1,0 +1,13 @@
+{
+  "collectionName": "components_form_section_dividers",
+  "info": {
+    "displayName": "Section Divider",
+    "icon": "minus"
+  },
+  "options": {},
+  "attributes": {
+    "label": {
+      "type": "string"
+    }
+  }
+}

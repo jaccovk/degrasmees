@@ -3,7 +3,7 @@ import React, { useState } from "react"
 import styles from "@/components/navigation/Navbar/Navbar.module.scss"
 import { LinkProps } from "@/Interfaces/strapi-components/link.interface"
 import CustomLink from "@/components/link/CustomLink"
-import useDarkMode from "@/theme/hooks/useDarkMode.hook"
+import ThemeToggle from "@/components/theme/ThemeToggle"
 import HamburgerMenu from "@/components/navigation/HamburgerMenu"
 import MobileNavigationMenu from "@/components/navigation/MobileNavigationMenu"
 import NextMedia from "@/components/media/NextMedia"
@@ -22,7 +22,6 @@ function NavLink(props: { link: LinkProps }) {
 
 export default function Navbar({ global }: { global: any }) {
   const router = useRouter()
-  const { ThemeSwitch } = useDarkMode()
   const [mobileMenuIsShown, setMobileMenuIsShown] = useState(false)
 
   const logo: Parts = global?.navigation?.logo || ({} as Parts)
@@ -42,7 +41,7 @@ export default function Navbar({ global }: { global: any }) {
 
           <div className={styles.content}>
             <ul>{links && links.map((link) => <NavLink key={link.id} link={link} />)}</ul>
-            <ThemeSwitch />
+            <ThemeToggle />
           </div>
           <div className={styles.mobile}>
             <HamburgerMenu isOpen={mobileMenuIsShown} setOpen={setMobileMenuIsShown} />

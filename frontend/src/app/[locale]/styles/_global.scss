@@ -1,4 +1,6 @@
-@import "../frontend/src/base/styles/_variables.scss";
-@import "variables";
-@import "../frontend/src/base/styles/_typography.scss";
-@import "typography";
+@forward "../../../base/styles/variables" with (
+  $font-family: 'inter'
+);
+@forward "variables";
+@forward "../../../base/styles/typography";
+@forward "typography";
